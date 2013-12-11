@@ -1,14 +1,10 @@
 package com.playnomics.android.unity;
 
-import android.app.Activity;
-
 import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
 import com.playnomics.android.sdk.Playnomics;
 
 
 public class PlaynomicsShim {
-	
-	private static final Object syncLock = new Object();
 	
 	private static IPlaynomicsPlacementRawDelegate delegate = new PlacementDelegate();
 	
