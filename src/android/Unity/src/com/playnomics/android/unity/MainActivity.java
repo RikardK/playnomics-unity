@@ -10,7 +10,6 @@ import android.util.Log;
 
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.playnomics.android.sdk.IGoogleCloudMessageConfig;
-import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
 import com.playnomics.android.sdk.IPushNotificationDelegate;
 import com.playnomics.android.sdk.Playnomics;
 import com.unity3d.player.UnityPlayerActivity;
@@ -23,9 +22,6 @@ public class MainActivity
 	private final String DEFAULT_GCM_SENDER_ID = "SENDER_ID";
 	private final String GCM_SENDER_ID_KEY = "com.playnomics.android.push.GCM_SENDER_ID";
 
-	static IPlaynomicsPlacementRawDelegate placementDelegate;
-	static Activity activity;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,8 +33,6 @@ public class MainActivity
 			if(senderId != null){
 				Playnomics.enablePushNotifications(this, this);
 			}
-			activity = this;
-			placementDelegate = new PlacementDelegate();
 		}
 	}
 
@@ -85,12 +79,6 @@ public class MainActivity
 		} catch (NameNotFoundException e) {
 		}
 		return null;
-	}
-	
-	public static void showPlacement(String placementName){
-		if(activity != null){
-			Playnomics.showPlacement(placementName, activity, placementDelegate);
-		}
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import com.unity3d.player.UnityPlayer;
 
 public class PlacementDelegate implements IPlaynomicsPlacementRawDelegate {
 	
-	private final String GAME_OBEJECT_NAME = "com.playnomics.PlacementDelegate";
+	private final String GAME_OBEJECT_NAME = "Playnomics.PlacementDelegateReceiver";
 
 	@Override
 	public void onClose(String rawJsonData) {

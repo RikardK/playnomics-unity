@@ -3,9 +3,11 @@ package com.playnomics.android.unity;
 import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
 import com.playnomics.android.sdk.Playnomics;
 
-
-public class PlaynomicsShim {
-	
+/*
+ * PlaynomicsShim is responsible for coordinating calls from the Unity SDK layer to the Android SDK
+ * that require an Android activity. These calls are intended to be decoupled from the MainActivity.
+ */
+public class PlaynomicsShim {	
 	private static IPlaynomicsPlacementRawDelegate delegate = new PlacementDelegate();
 	
 	public static void start(long applicationId, String userId){
