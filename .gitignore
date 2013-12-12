@@ -7,3 +7,6 @@
 
 #Android
 bin/
+
+*.pidb
+*.userprefs
