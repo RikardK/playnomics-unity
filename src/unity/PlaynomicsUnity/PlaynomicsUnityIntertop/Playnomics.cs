@@ -236,7 +236,7 @@ namespace PlaynomicsUnity
 		public delegate void OnTouchPlacementHandler(object sender, PlacementEventArgs placementArgs);
 		public static event OnTouchPlacementHandler OnTouchPlacement;
 		
-		public delegate void OnRenderFailedPlacementHandler(object sender, EventArgs args);
+		public delegate void OnRenderFailedPlacementHandler(object sender);
 		public static event OnRenderFailedPlacementHandler OnPlacementRenderFailed;
 
 		public void OnShow(string rawJsonData)
@@ -267,7 +267,7 @@ namespace PlaynomicsUnity
 		{
 			if(OnPlacementRenderFailed != null)
 			{
-				OnPlacementRenderFailed(this, null);
+				OnPlacementRenderFailed(this);
 			}
 		}
 		
