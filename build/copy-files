@@ -1,0 +1,27 @@
+#!/bin/bash
+FULLSCRIPT=$(which $0)
+BINPATH=`dirname ${FULLSCRIPT}`
+SRC_PATH=${BINPATH}/../src
+
+UNITY_PLUGIN_PATH = $SRC_PATH/unity/PlaynomicsPlugin/Assets/Plugins
+
+echo "Copy Android SDK Assets"
+ANDROID_PATH = $SRC_PATH/android/Unity
+
+cp $ANDROID_PATH/libs/android-support-v4.jar $UNITY_PLUGIN_PATH/Android
+cp $ANDROID_PATH/libs/google-play-services.jar $UNITY_PLUGIN_PATH/Android
+cp $ANDROID_PATH/libs/playnomics-android-sdk-1.2.0.jar $UNITY_PLUGIN_PATH/Android
+# Resources
+cp -fr $ANDROID_PATH/res $UNITY_PLUGIN_PATH/Android/res
+# Source files
+cp -fr $ANDROID_PATH/src $UNITY_PLUGIN_PATH/Android/src
+# Android manifest
+cp -f $ANDROID_PATH/AndroidManifest.xml $UNITY_PLUGIN/Android
+
+echo "Copy iOS SDK Assets"
+
+echo "Copy Unity Layer"
+UNITY_SRC_PATH = $SRC_PATH/unity
+cp $UNITY_SRC_PATH/libs/Playnomics.LitJson.dll $UNITY_PLUGIN_PATH
+cp $UNITY_SRC_PATH/PlaynomicsUnity/PlaynomicsUnityInterop/Playnomics.cs $UNITY_PLUGIN_PATH
+
