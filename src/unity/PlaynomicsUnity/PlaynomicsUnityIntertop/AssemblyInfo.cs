@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("PlaynomicsUnity")]
+[assembly: AssemblyTitle("Playnomics Unity SDK")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
-[assembly: AssemblyCopyright("jaredjenkins")]
+[assembly: AssemblyCopyright("Playnomics")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

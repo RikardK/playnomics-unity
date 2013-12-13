@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using Playnomics.LitJson;
 
-namespace PlaynomicsUnity
+namespace Playnomics.Unity
 {
-	public class Playnomics : MonoBehaviour
+	public class PN : MonoBehaviour
 	{
 		private static bool initialized;
 		private static GameObject playGameObject;
@@ -57,7 +57,7 @@ namespace PlaynomicsUnity
 			if(!initialized)
 			{
 				playGameObject = new GameObject("Playnomics");
-				playGameObject.AddComponent(typeof(Playnomics));
+				playGameObject.AddComponent(typeof(PN));
 				//keep this game object around for all scenes
 				DontDestroyOnLoad(playGameObject);
 				initialized = true;
