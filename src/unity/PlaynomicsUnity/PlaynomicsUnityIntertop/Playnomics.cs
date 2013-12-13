@@ -12,6 +12,8 @@ namespace Playnomics.Unity
 		private static readonly string androidShimClassName = "com.playnomics.android.unity.PlaynomicsShim";
 		private static readonly string androidPlaynomicsClassName = "com.playnomics.android.sdk.Playnomics";
 
+		public static IPlacementDelegate PlacementDelegate { get; set; }
+
 		public static void StartSDK(long applicationId)
 		{
 			if(Application.platform == RuntimePlatform.Android)
@@ -215,69 +217,6 @@ namespace Playnomics.Unity
 				Debug.Log("Called attributeInstall. This method is only available when you build your game for Android or iOS.");
 			}
 		}
-
-		#region Placement Delegate
-		public class PlacementEventArgs : EventArgs
-		{
-			public JsonData JSONData { get; private set; }
-			
-			public PlacementEventArgs(JsonData jsonData)
-			{
-				JSONData = jsonData;
-			}
-		}
-		
-		public delegate void OnShowPlacementHandler(object sender, PlacementEventArgs placementArgs);
-		public static event OnShowPlacementHandler OnShowPlacement;
-		
-		public delegate void OnClosePlacementHandler(object sender, PlacementEventArgs placementArgs);
-		public static event OnClosePlacementHandler OnClosePlacement;
-		
-		public delegate void OnTouchPlacementHandler(object sender, PlacementEventArgs placementArgs);
-		public static event OnTouchPlacementHandler OnTouchPlacement;
-		
-		public delegate void OnRenderFailedPlacementHandler(object sender);
-		public static event OnRenderFailedPlacementHandler OnPlacementRenderFailed;
-
-		public void OnShow(string rawJsonData)
-		{
-			if(OnShowPlacement != null)
-			{
-				OnShowPlacement(this, GetEventArgs(rawJsonData));
-			}
-		}
-		
-		public void OnClose(string rawJsonData)
-		{
-			if(OnClosePlacement != null)
-			{
-				OnClosePlacement(this, GetEventArgs(rawJsonData));
-			}
-		}
-		
-		public void OnTouch(string rawJsonData)
-		{
-			if(OnTouchPlacement != null)
-			{
-				OnTouchPlacement(this, GetEventArgs(rawJsonData));
-			}
-		}
-		
-		public void OnRenderFailed()
-		{
-			if(OnPlacementRenderFailed != null)
-			{
-				OnPlacementRenderFailed(this);
-			}
-		}
-		
-		private PlacementEventArgs GetEventArgs(string rawJsonData)
-		{
-			if(string.IsNullOrEmpty(rawJsonData)){ return null; }
-			JsonData data = JsonMapper.ToObject(rawJsonData);
-			return new PlacementEventArgs(data);
-		}
-		#endregion 
 	}
 }
 

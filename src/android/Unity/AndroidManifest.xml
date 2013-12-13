@@ -19,13 +19,13 @@
         android:debuggable="true"
         android:allowBackup="true"
         android:icon="@drawable/app_icon"
-        android:label="@string/app_name">
+        android:label="Playnomics Unity">
         <meta-data android:name="com.google.android.gms.version"
            android:value="@integer/google_play_services_version" />
         <!-- activities -->
         <activity
-            android:name="com.playnomics.PlaynomicsTestAppActivity"
-            android:label="@string/app_name" >
+            android:name="com.playnomics.android.unity.MainActivity"
+            android:label="Playnomics Unity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
