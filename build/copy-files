@@ -1,26 +1,41 @@
 #!/bin/bash
+set -ex
+BLUE='\033[94m'
+END_COLOR='\033[0m'
+
+function color_log(){
+    echo -e "$BLUE$1$END_COLOR"
+}
+
 FULLSCRIPT=$(which $0)
 BINPATH=`dirname ${FULLSCRIPT}`
 SRC_PATH=${BINPATH}/../src
 
 UNITY_PLUGIN_PATH=$SRC_PATH/unity/PlaynomicsPlugin/PlaynomicsPlugin/Assets/Plugins
 
-echo "Copy Android SDK Assets"
 ANDROID_PATH=$SRC_PATH/android/Unity
+
+color_log "Building Unity Android Shim"
+
+mvn -q -f $ANDROID_PATH/pom.xml clean package
+
+color_log "Copy JAR file to project"
+cp $ANDROID_PATH/target/*.jar $UNITY_PLUGIN_PATH/Android/
+
+color_log "Copy External Android JAR Dependencies"
 
 cp $ANDROID_PATH/libs/android-support-v4.jar $UNITY_PLUGIN_PATH/Android/
 cp $ANDROID_PATH/libs/google-play-services.jar $UNITY_PLUGIN_PATH/Android/
 cp $ANDROID_PATH/libs/playnomics-android-sdk-1.2.0.jar $UNITY_PLUGIN_PATH/Android/
+
 #resources
 cp -fr $ANDROID_PATH/res $UNITY_PLUGIN_PATH/Android/
-#source files
-cp -fr $ANDROID_PATH/src $UNITY_PLUGIN_PATH/Android/
 #android manifest
 cp -f $ANDROID_PATH/AndroidManifest.xml $UNITY_PLUGIN_PATH/Android/
 
-echo "Copy iOS SDK Assets"
+color_log "Copy iOS SDK Assets"
 
-echo "Copy Unity Layer"
+color_log "Copy Unity Layer"
 UNITY_SRC_PATH=$SRC_PATH/unity
 cp $UNITY_SRC_PATH/lib/Playnomics.LitJson.dll $UNITY_PLUGIN_PATH
 cp $UNITY_SRC_PATH/PlaynomicsUnity/PlaynomicsUnityIntertop/bin/Release/Playnomics.Unity.dll $UNITY_PLUGIN_PATH
