@@ -10,7 +10,6 @@ namespace Playnomics.Unity
 		private static GameObject playGameObject;
 
 		private static readonly string androidShimClassName = "com.playnomics.android.unity.PlaynomicsShim";
-		private static readonly string androidPlaynomicsClassName = "com.playnomics.android.sdk.Playnomics";
 
 		public static IPlacementDelegate PlacementDelegate { get; set; }
 
@@ -20,7 +19,7 @@ namespace Playnomics.Unity
 			{
 				using(var shimClass = new AndroidJavaClass(androidShimClassName))
 				{
-					shimClass.CallStatic("startApplication", new object[1] { applicationId });
+					shimClass.CallStatic("start", new object[1] { applicationId });
 				}	
 				InitializeGameObjects();
 			}
@@ -40,7 +39,7 @@ namespace Playnomics.Unity
 			{
 				using(var shimClass = new AndroidJavaClass(androidShimClassName))
 				{
-					shimClass.CallStatic("startApplication", new object[2] { applicationId, userId });
+					shimClass.CallStatic("start", new object[2] { applicationId, userId });
 				}	
 				InitializeGameObjects();
 			}
@@ -70,7 +69,7 @@ namespace Playnomics.Unity
 		{
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
 					sdkClass.CallStatic("customEvent", new object[1] { customEventName });
 				}	
@@ -89,7 +88,7 @@ namespace Playnomics.Unity
 		{
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
 					sdkClass.CallStatic("transactionInUSD", new object[2] { price, quantity });
 				}	
@@ -106,11 +105,16 @@ namespace Playnomics.Unity
 
 		public static void PreloadPlacements(params string[] placementNames)
 		{
+			if(placementNames.Length == 0){ return; }
+
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
-					sdkClass.CallStatic("preloadPlacements", placementNames);
+					foreach(String placementName in placementNames)
+					{
+						sdkClass.CallStatic("preloadPlacement", placementName);
+					}
 				}
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
@@ -146,7 +150,7 @@ namespace Playnomics.Unity
 		{
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
 					sdkClass.CallStatic("hidePlacement", new object[1] { placementName });
 				}
@@ -165,7 +169,7 @@ namespace Playnomics.Unity
 		{
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
 					sdkClass.CallStatic("attributeInstall", new object[1] { source });
 				}
@@ -184,7 +188,7 @@ namespace Playnomics.Unity
 		{
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
 					sdkClass.CallStatic("attributeInstall", new object[2] { source, campaign });
 				}
@@ -199,13 +203,17 @@ namespace Playnomics.Unity
 			}
 		}
 
-		public static void AttributeInstall(string source, string campaign, DateTime installDate)
+		public static void AttributeInstall(string source, string campaign, DateTime installDateUtc)
 		{
+			//use epoch time in milliseconds as the representation for time, since this is more efficient
+			DateTime epochTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+			long installTimeMilliseconds = (long)(installDateUtc.ToUniversalTime() - epochTime).TotalMilliseconds;
+
 			if(Application.platform == RuntimePlatform.Android)
 			{
-				using(var sdkClass = new AndroidJavaClass(androidPlaynomicsClassName))
+				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
-					sdkClass.CallStatic("attributeInstall", new object[3] { source, campaign, installDate });
+					sdkClass.CallStatic("attributeInstall", new object[3] { source, campaign, installTimeMilliseconds });
 				}
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
@@ -217,6 +225,58 @@ namespace Playnomics.Unity
 				Debug.Log("Called attributeInstall. This method is only available when you build your game for Android or iOS.");
 			}
 		}
+
+		#region Placements
+
+		public void OnShow(string rawJsonData)
+       	{
+           	if(PlacementDelegate != null)
+           	{
+				PlacementDelegate.OnShow(GetJsonData(rawJsonData));
+			}
+      	}
+
+		public void OnClose(string rawJsonData)
+	    {
+			if(PlacementDelegate != null)
+           	{
+				PlacementDelegate.OnClose(GetJsonData(rawJsonData));
+			}
+		}
+
+		public void OnTouch(string rawJsonData)
+		{
+			if(PlacementDelegate != null)
+			{
+				PlacementDelegate.OnTouch(GetJsonData(rawJsonData));
+			}
+		}
+
+		public void OnRenderFailed(string emptyMessage)
+		{
+			if(PlacementDelegate != null)
+            {
+				PlacementDelegate.OnRenderFailed();
+			}
+       	}
+
+		private JsonData GetJsonData(string rawJsonData)
+       	{
+           	try
+			{
+				if(string.IsNullOrEmpty(rawJsonData)){ return null; }
+				return JsonMapper.ToObject(rawJsonData);
+			} 
+			catch(Playnomics.LitJson.JsonException jex)
+			{
+			}
+			catch(Exception ex)
+			{
+			}
+			return null;
+       	}
+
+		#endregion
 	}
 }
 
