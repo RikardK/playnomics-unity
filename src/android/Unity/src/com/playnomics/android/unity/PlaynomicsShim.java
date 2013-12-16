@@ -44,7 +44,7 @@ public class PlaynomicsShim {
 		Playnomics.attributeInstall(source, campaign);
 	}
 	
-	public static void attributeInstall(String source, String campaign, int installTimeMilliseconds){
+	public static void attributeInstall(String source, String campaign, long installTimeMilliseconds){
 		Date installDate = new Date(installTimeMilliseconds);
 		Log.d(TAG, String.format("attributeInstall { source : %s, campaign : %s }", source, campaign));
 		Playnomics.attributeInstall(source, campaign, installDate);
