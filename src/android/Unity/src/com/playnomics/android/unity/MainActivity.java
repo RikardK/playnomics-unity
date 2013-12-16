@@ -12,6 +12,7 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.playnomics.android.sdk.IGoogleCloudMessageConfig;
 import com.playnomics.android.sdk.IPushNotificationDelegate;
 import com.playnomics.android.sdk.Playnomics;
+import com.playnomics.android.util.Logger.LogLevel;
 import com.unity3d.player.UnityPlayerActivity;
 
 public class MainActivity
@@ -25,7 +26,7 @@ public class MainActivity
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		Playnomics.setLogLevel(LogLevel.VERBOSE);
 		if(!initialized){
 			initialized = true;
 			
