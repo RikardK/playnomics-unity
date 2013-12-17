@@ -1,4 +1,4 @@
-using System;
+DateTimeKind.Utcusing System;
 using UnityEngine;
 using Playnomics.LitJson;
 
@@ -40,7 +40,7 @@ namespace Playnomics.Unity
 				using(var shimClass = new AndroidJavaClass(androidShimClassName))
 				{
 					shimClass.CallStatic("start", new object[2] { applicationId, userId });
-				}	
+				}
 				InitializeGameObjects();
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
@@ -227,7 +227,6 @@ namespace Playnomics.Unity
 		}
 
 		#region Placements
-
 		public void OnShow(string rawJsonData)
        	{
            	if(PlacementDelegate != null)
@@ -275,7 +274,6 @@ namespace Playnomics.Unity
 			}
 			return null;
        	}
-
 		#endregion
 	}
 }
