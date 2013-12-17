@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.playnomics.android.unity"
+    package="YOUR_PACKAGE"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -32,16 +32,18 @@
             </intent-filter>
         </activity>
         <!-- push receiver -->
+        <meta-data android:name="com.playnomics.android.push.GCM_SENDER_ID"
+     	   android:value="SENDER_ID"/>
         <receiver
             android:name="com.playnomics.android.push.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.playnomics" />
+                <category android:name="YOUR_PACKAGE" />
             </intent-filter>
             <intent-filter>
                 <action android:name="com.playnomics.android.push.PUSH_OPENED" />
-                <category android:name="com.playnomics" />
+                <category android:name="YOUR_PACKAGE" />
             </intent-filter>
         </receiver>
         <!-- push background service -->
