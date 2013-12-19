@@ -12,7 +12,6 @@ public class Integration : MonoBehaviour {
 		PN.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
 		PN.PlacementDelegate = new PlacementDelegate();
 	}
-	
 
 	// Update is called once per frame
 	void Update() 
