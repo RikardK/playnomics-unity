@@ -38,14 +38,14 @@ public class Integration : MonoBehaviour {
 
 You can either provide a dynamic `<USER-ID>` to identify each user:
 
-```chsarp
+```csharp
 public void static StartSDK(long applicationId, string userId);
 ```
 
 or have PlayRM, generate a *best-effort* unique-identifier for the user:
 
 ```csharp
-public void static StartSDK(long applicationId, string userId);
+public void static StartSDK(long applicationId);
 ```
 
 If you do choose to provide a `<USER-ID>`, this value should be persistent, anonymized, and unique to each user. This is typically discerned dynamically when a user starts the application. Some potential implementations:
