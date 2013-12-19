@@ -37,6 +37,6 @@ color_log "Copy iOS SDK Assets"
 
 color_log "Copy Unity Layer"
 UNITY_SRC_PATH=$SRC_PATH/unity
-cp $UNITY_SRC_PATH/lib/Playnomics.LitJson.dll $UNITY_PLUGIN_PATH
-cp $UNITY_SRC_PATH/PlaynomicsUnity/PlaynomicsUnityIntertop/bin/Release/Playnomics.Unity.dll $UNITY_PLUGIN_PATH
+cp $UNITY_SRC_PATH/lib/Playnomics.LitJson.dll $UNITY_PLUGIN_PATH/Playnomics/
+cp $UNITY_SRC_PATH/PlaynomicsUnity/PlaynomicsUnityIntertop/bin/Release/Playnomics.Unity.dll $UNITY_PLUGIN_PATH/Playnomics/
 
