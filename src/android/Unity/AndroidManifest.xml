@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="YOUR_PACKAGE"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.0">
 
     <uses-sdk android:minSdkVersion="10" android:targetSdkVersion="23" />
 
@@ -19,13 +19,16 @@
         android:debuggable="true"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="Playnomics Unity">
+        android:label="APP_NAME">
         <meta-data android:name="com.google.android.gms.version"
            android:value="@integer/google_play_services_version" />
         <!-- activities -->
         <activity
             android:name=".MainActivity"
-            android:label="Playnomics Unity" >
+            android:label="Playnomics Unity" 			  
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+  			<meta-data android:name="android.app.lib_name" android:value="unity" />
+  			<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
