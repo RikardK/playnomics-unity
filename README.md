@@ -106,12 +106,12 @@ public static void ShowPlacement(string placementName);
 Optionally, associate an implementation of the `IPlacementDelegate` interface, to process rich data callbacks. See [Using Rich Data Callbacks](#using-rich-data-callbacks) for more information.
 
 ```csharp
-public static Property IPlacementDelegate { get; set; }
+public static IPlacementDelegate PlacementDelegate { get; set; }
 ```
 
 ## Using Rich Data Callbacks
 
-Using an implementation of `IPlacementDelegate` your application can receive notifications when a placement is:
+Using an implementation of `IPlacementDelegate` your application can receive notifications when a placement:
 
 * Is shown in the screen.
 * Receives a touch event on the creative.
@@ -120,7 +120,8 @@ Using an implementation of `IPlacementDelegate` your application can receive not
 
 ```csharp
 using Playnomics.LitJson;
-public interface IPlacementDelegate {
+public interface IPlacementDelegate 
+{
     void onShow(JsonData jsonData);
 
     void onTouch(JsonData jsonData);
@@ -133,7 +134,7 @@ public interface IPlacementDelegate {
 
 For each of these events, your delegate may also receive Rich Data that has been tied with this creative. Rich Data is a JSON message that you can associate with your message creative. In all cases, the `jsonData` value can be `null`.
 
-The actual contents of your JSON message can be delayed until the time of the messaging campaign configuration. However, the structure of your message needs to be decided before you can process it in your application. See [example use-cases for rich data](#example-use-cases-for-rich-data) below.
+The actual contents of your JSON message can be delayed until the time of the messaging campaign configuration. However, the structure of your message needs to be decided before you can process it in your application. See [example use-cases for rich data](https://github.com/playnomics/playnomics-unity/wiki/Rich-Data-Callbacks) for more information.
 
 ## Validate Integration
 After you've finished the installation, you should verify that your application is correctly integrated by checkout the integration verification section of your application page.
@@ -314,35 +315,10 @@ If you have any questions or issues, please contact <a href="mailto:support@play
 
 Change Log
 ==========
-
-#### Version 1.1.1
-* Bug fix session needs to be reset after significant session downtime
-
-#### Version 1.1.0
-* Support for Push Notifications for Google Cloud Messaging
-* `setTestMode` has been marked as deprecated. We now support test devices for validating and testing integrations.
-
 #### Version 1.0.0
-* Support for 3rd party html-based advertisements
-* Support for simplified, fullscreen placements and internal messaging creatives
-* Support for custom events
-* A greatly simplified interface and API
-* More robust error and exception handling
-* Performance improvements, including background event queueing and better support for offline-mode
-* Version number reset
+* Supports Unity games built for Android and iOS
+    * Based on the iOS SDK Version 1.1.0 - compatible for iOS 5 and above
+    * Based on the Android SDK Version 1.2.0 -  compatible with Gingerbread 2.3.3 (API v 10) and above
+* Includes support for 3rd Party Ads, Fullscreen Internal Messages, and Segmented Push Notifications
 
-#### Version 3.1
-* Added support for Messaging with Rich Data Callbacks.
-
-#### Version 3.0.1
-* Bug fixes for reporting the device ID
-* Performance improvements
-
-#### Version 3
-* Support for internal messaging
-* Added milestone module
-
-#### Version 2
-* First release
-
-View version <a href="https://github.com/playnomics/android-sdk/tags">tags</a>. View [releases](https://github.com/playnomics/playnomics-android/releases).
+View version tags <a href="https://github.com/playnomics/playnomics-unity/tags">here</a>
