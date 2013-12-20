@@ -14,11 +14,15 @@ You can download the SDK from our [releases page](https://github.com/playnomics/
 
 The tar file contains a set files for using the PlayRM SDK with Android and iOS. The Plugin directory structure matches what Unity expects.
 
-If you don't already have files in the Android and iOS folders, feel free to copy the folders as is into your project. You will only need to replace the `YOUR_PACKAGE` in the **AndroidManifest.xml** file with Bundle Indentifier for your application. This is same identifier used for Google Play Store.
+If you don't already have files in the Android and iOS folders, feel free to copy the folders as is into your project.
 
 If you already have existing plugins, we encourage you to look through the files to make ensure that aren't any conflicts.
 
-When you're ready to build your game for Android, please review these [notes](https://github.com/playnomics/playnomics-unity/wiki/Android-Manifest-Setup).
+## Preparing for Deployment
+
+Before you build your game for Android, please follow these [steps](https://github.com/playnomics/playnomics-unity/wiki/Android-Manifest-Setup).
+
+Before you build your game for iOS, please follow these [steps](https://github.com/playnomics/playnomics-unity/wiki/iOS-Setup).
 
 ## Starting a PlayRM Session
 
@@ -320,5 +324,6 @@ Change Log
     * Based on the iOS SDK Version 1.1.0 - compatible for iOS 5 and above
     * Based on the Android SDK Version 1.2.0 -  compatible with Gingerbread 2.3.3 (API v 10) and above
 * Includes support for 3rd Party Ads, Fullscreen Internal Messages, and Segmented Push Notifications
+* Supports testing and validation through test devices (IDFA for iOS and Android ID for Android)
 
 View version tags <a href="https://github.com/playnomics/playnomics-unity/tags">here</a>
