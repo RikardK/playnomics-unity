@@ -266,12 +266,8 @@ namespace Playnomics.Unity
 				if(string.IsNullOrEmpty(rawJsonData)){ return null; }
 				return JsonMapper.ToObject(rawJsonData);
 			} 
-			catch(Playnomics.LitJson.JsonException jex)
-			{
-			}
-			catch(Exception ex)
-			{
-			}
+			catch(Playnomics.LitJson.JsonException jex){}
+			catch(Exception ex){}
 			return null;
        	}
 		#endregion
