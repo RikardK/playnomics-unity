@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using Playnomics.LitJson;
 
@@ -13,6 +14,29 @@ namespace Playnomics.Unity
 
 		public static IPlacementDelegate PlacementDelegate { get; set; }
 
+		#region iOS Marshal Functions
+		[DllImport ("__Internal")]
+		private static extern void PNStartSDK(long application);
+		[DllImport ("__Internal")]
+		private static extern void PNStartSDK(long application, string userId);
+		[DllImport ("__Internal")]
+		private static extern void PNCustomEvent(string customEventName);
+		[DllImport ("__Internal")]
+		private static extern void PNTransactionInUSD(float price, int quantity);
+		[DllImport ("__Internal")]
+		private static extern void PNPreloadPlacement(string placementName);
+		[DllImport ("__Internal")]
+		private static extern void PNShowPlacement(string placementName);
+		[DllImport ("__Internal")]
+		private static extern void PNHidePlacement(string placementName);
+		[DllImport ("__Internal")]
+		private static extern void PNAttributeInstall(string source);
+		[DllImport ("__Internal")]
+		private static extern void PNAttributeInstall(string source, string campaign);
+		[DllImport ("__Internal")]
+		private static extern void PNAttributeInstall(string source, string campaign, long installTimeMilliseconds);
+		#endregion
+
 		public static void StartSDK(long applicationId)
 		{
 			if(Application.platform == RuntimePlatform.Android)
@@ -25,7 +49,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-
+				PNStartSDK(applicationId);
 			}
 			else
 			{
@@ -45,7 +69,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNStartSDK(applicationId, userId);
 			}
 			else
 			{
@@ -76,7 +100,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNCustomEvent(customEventName);
 			}
 			else
 			{
@@ -95,7 +119,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNTransactionInUSD(price, quantity);
 			}
 			else
 			{
@@ -111,7 +135,7 @@ namespace Playnomics.Unity
 			{
 				using(var sdkClass = new AndroidJavaClass(androidShimClassName))
 				{
-					foreach(String placementName in placementNames)
+					foreach(string placementName in placementNames)
 					{
 						sdkClass.CallStatic("preloadPlacement", placementName);
 					}
@@ -119,7 +143,10 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-
+				foreach(string placementName in placementNames)
+				{
+					PNPreloadPlacement(placementName);
+				}
 			}
 			else
 			{
@@ -138,7 +165,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNShowPlacement(placementName);
 			}
 			else
 			{
@@ -157,7 +184,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNHidePlacement(placementName);
 			}
 			else
 			{
@@ -176,7 +203,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNAttributeInstall(source);
 			}
 			else
 			{
@@ -195,7 +222,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNAttributeInstall(source, campaign);
 			}
 			else
 			{
@@ -218,7 +245,7 @@ namespace Playnomics.Unity
 			}
 			else if(Application.platform == RuntimePlatform.IPhonePlayer)
 			{
-				
+				PNAttributeInstall(source, campaign, installTimeMilliseconds);
 			}
 			else
 			{
