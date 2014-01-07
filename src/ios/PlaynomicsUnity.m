@@ -13,6 +13,14 @@ NSString* PNCreateNSString (const char* string)
     return nil;
 }
 
+const char* PNMakeStringCopy(NSString *nsString)
+{
+    const char* utf8Val = string == nil ? [nsString UTF8String] : "";
+	const char* res = (char*)malloc(strlen(utf8Val) + 1);
+	strcpy(res, utf8Val);
+	return res;
+}
+
 void PNStartSDK(long applicationId)
 {
     [Playnomics startWithApplicationId:applicationId];
@@ -85,17 +93,17 @@ void PNAttributeInstall(const char* source, const char* campaign, long installTi
 
 void PNOnShow(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnShow", rawJson ? [rawJson UTF8String] : "");
+    UnitySendMessage("Playnomics", "OnShow", PNMakeStringCopy(rawJson));
 }
 
 void PNOnTouch(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnTouch", rawJson ? [rawJson UTF8String] : "");
+    UnitySendMessage("Playnomics", "OnTouch", PNMakeStringCopy(rawJson));
 }
 
 void PNOnClose(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnClose", rawJson ? [rawJson UTF8String] : "");
+    UnitySendMessage("Playnomics", "OnClose", PNMakeStringCopy(rawJson));
 }
 
 void PNOnRenderFailed()
