@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-using Playnomics.Unity;
 
 public class Integration : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 		const long appId = 733674050111288021L;
-		PN.StartSDK(appId);
-		PN.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
-		PN.PlacementDelegate = new PlacementDelegate();
+		Playnomics.StartSDK(appId);
+		Playnomics.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
+		Playnomics.PlacementDelegate = new PlacementDelegate();
 	}
 
 	// Update is called once per frame
@@ -37,44 +36,44 @@ public class Integration : MonoBehaviour {
 			string source = "source";
 			string campaign = "campaign";
 			DateTime installDate = DateTime.UtcNow;
-			PN.AttributeInstall(source, campaign, installDate);
+			Playnomics.AttributeInstall(source, campaign, installDate);
 		}
 		
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Transaction"))
 		{
 			float price = 0.99f;
 			int quantity = 1;
-			PN.TransactionInUSD(price, quantity);
+			Playnomics.TransactionInUSD(price, quantity);
 		}
 				
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "App Start Milestone"))
 		{
-			PN.CustomEvent("app start");
+			Playnomics.CustomEvent("app start");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "HTTP"))
 		{
-			PN.ShowPlacement("http");
+			Playnomics.ShowPlacement("http");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Ads"))
 		{
-			PN.ShowPlacement("ad");
+			Playnomics.ShowPlacement("ad");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Null Target"))
 		{
-			PN.ShowPlacement("nullTarget");
+			Playnomics.ShowPlacement("nullTarget");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "JSON"))
 		{
-			PN.ShowPlacement("json");
+			Playnomics.ShowPlacement("json");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "No Show"))
 		{
-			PN.ShowPlacement("noShow");
+			Playnomics.ShowPlacement("noShow");
 		}
 	}
 }
