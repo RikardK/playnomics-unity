@@ -3,19 +3,18 @@
 @implementation PNDelegate
 
 -(void) onTouch:(NSString *) rawJson{
-    PNOnTouch(rawJson);
+    UnitySendMessage("Playnomics", "OnTouch", rawJson ? [rawJson UTF8String] : "");
 }
 
 -(void) onClose:(NSString *) rawJson{
-    PNOnTouch(rawJson);
+    UnitySendMessage("Playnomics", "OnClose", rawJson ? [rawJson UTF8String] : "");
 }
 
 -(void) onShow:(NSString *) rawJson{
-    PNOnShow(rawJson);
+    UnitySendMessage("Playnomics", "OnShow", rawJson ? [rawJson UTF8String] : "");
 }
 
--(void) onDidFailToRender(){
-    PNOnRenderFailed();
+-(void) onDidFailToRender {
+    UnitySendMessage("Playnomics", "OnRenderFailed", "");
 }
-
 @end
