@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using Playnomics.LitJson;
 
-public class PN : MonoBehaviour
+public class PlayUnity : MonoBehaviour
 {
 	private static bool initialized;
 	private static GameObject playGameObject;
@@ -14,9 +14,9 @@ public class PN : MonoBehaviour
 
 	#region iOS Marshal Functions
 	[DllImport ("__Internal")]
-	private static extern void PNStartSDK(long application);
+	private static extern void PNStart(long application);
 	[DllImport ("__Internal")]
-	private static extern void PNStartSDK(long application, string userId);
+	private static extern void PNStartWithUserId(long application, string userId);
 	[DllImport ("__Internal")]
 	private static extern void PNCustomEvent(string customEventName);
 	[DllImport ("__Internal")]
@@ -30,9 +30,9 @@ public class PN : MonoBehaviour
 	[DllImport ("__Internal")]
 	private static extern void PNAttributeInstall(string source);
 	[DllImport ("__Internal")]
-	private static extern void PNAttributeInstall(string source, string campaign);
+	private static extern void PNAttributeInstallWithCampaign(string source, string campaign);
 	[DllImport ("__Internal")]
-	private static extern void PNAttributeInstall(string source, string campaign, long installTimeMilliseconds);
+	private static extern void PNAttributeInstallWithCampaignTime(string source, string campaign, long installTimeMilliseconds);
 	#endregion
 
 	public static void StartSDK(long applicationId)
@@ -46,7 +46,7 @@ public class PN : MonoBehaviour
 		}	
 		InitializeGameObjects();
 #elif UNITY_IPHONE
-		PNStartSDK(applicationId);
+		PNStart(applicationId);
 		InitializeGameObjects();
 #endif
 	}
@@ -63,7 +63,7 @@ public class PN : MonoBehaviour
 		
 		InitializeGameObjects();
 #elif UNITY_IPHONE
-		PNStartSDK(applicationId, userId);
+		PNStartWithUserId(applicationId, userId);
 		InitializeGameObjects();
 #endif
 	}
@@ -73,7 +73,7 @@ public class PN : MonoBehaviour
 		if(!initialized)
 		{
 			playGameObject = new GameObject("Playnomics");
-			playGameObject.AddComponent(typeof(PN));
+			playGameObject.AddComponent(typeof(PlayUnity));
 			//keep this game object around for all scenes
 			DontDestroyOnLoad(playGameObject);
 			initialized = true;
@@ -181,7 +181,7 @@ public class PN : MonoBehaviour
 			sdkClass.CallStatic("attributeInstall", new object[2] { source, campaign });
 		}
 #elif UNITY_IPHONE
-		PNAttributeInstall(source, campaign);
+		PNAttributeInstallWithCampaign(source, campaign);
 #endif
 	}
 
@@ -198,7 +198,7 @@ public class PN : MonoBehaviour
 			sdkClass.CallStatic("attributeInstall", new object[3] { source, campaign, installTimeMilliseconds });
 		}
 #elif UNITY_IPHONE
-		PNAttributeInstall(source, campaign, installTimeMilliseconds);
+		PNAttributeInstallWithCampaignTime(source, campaign, installTimeMilliseconds);
 #endif
 	}
 
