@@ -15,7 +15,8 @@ NSString* PNCreateNSString (const char* string)
 
 const char* PNMakeStringCopy(NSString *nsString)
 {
-    const char* utf8Val = string == nil ? [nsString UTF8String] : "";
+    const char* utf8Val = nsString ? [nsString UTF8String] : "";
+    
 	const char* res = (char*)malloc(strlen(utf8Val) + 1);
 	strcpy(res, utf8Val);
 	return res;
@@ -93,17 +94,17 @@ void PNAttributeInstall(const char* source, const char* campaign, long installTi
 
 void PNOnShow(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnShow", PNMakeStringCopy(rawJson));
+    UnitySendMessage("Playnomics", "OnShow", rawJson ? [rawJson UTF8String] : "");
 }
 
 void PNOnTouch(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnTouch", PNMakeStringCopy(rawJson));
+    UnitySendMessage("Playnomics", "OnTouch", rawJson ? [rawJson UTF8String] : "");
 }
 
 void PNOnClose(NSString *rawJson)
 {
-    UnitySendMessage("Playnomics", "OnClose", PNMakeStringCopy(rawJson));
+    UnitySendMessage("Playnomics", "OnClose", rawJson ? [rawJson UTF8String] : "");
 }
 
 void PNOnRenderFailed()
