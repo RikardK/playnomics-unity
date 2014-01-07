@@ -1,7 +1,5 @@
 package com.playnomics.android.unity;
 
-import android.util.Log;
-
 import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
 import com.unity3d.player.UnityPlayer;
 
@@ -15,15 +13,12 @@ public class PlacementDelegate implements IPlaynomicsPlacementRawDelegate {
 		//coalesce the rawJsonData value to an empty string,
 		//otherwise unity will segfault
 		rawJsonData = rawJsonData == null ? "" : rawJsonData;
-		
-		Log.d(TAG, String.format("onClose: JSON value %s", rawJsonData));
 		UnityPlayer.UnitySendMessage(GAME_OBEJECT_NAME, "OnClose", rawJsonData);
 	}
 
 	@Override
 	public void onRenderFailed() {
-		//send an empty string, otherwise unity will segfault
-		Log.d(TAG, "onRenderFailed");
+		//send an empty string, otherwise Unity will segfault
 		UnityPlayer.UnitySendMessage(GAME_OBEJECT_NAME, "OnRenderFailed", "");
 	}
 
@@ -32,7 +27,6 @@ public class PlacementDelegate implements IPlaynomicsPlacementRawDelegate {
 		//coalesce the rawJsonData value to an empty string,
 		//otherwise unity will segfault
 		rawJsonData = rawJsonData == null ? "" : rawJsonData;
-		Log.d(TAG, String.format("onShow: { rawJsonData : %s }", rawJsonData));
 		UnityPlayer.UnitySendMessage(GAME_OBEJECT_NAME, "OnShow", rawJsonData);
 	}
 
@@ -41,7 +35,6 @@ public class PlacementDelegate implements IPlaynomicsPlacementRawDelegate {
 		//coalesce the rawJsonData value to an empty string,
 		//otherwise unity will segfault
 		rawJsonData = rawJsonData == null ? "" : rawJsonData;
-		Log.d(TAG, String.format("onTouch: { rawJsonData : %s }", rawJsonData));
 		UnityPlayer.UnitySendMessage(GAME_OBEJECT_NAME, "OnTouch", rawJsonData);
 	}
 }
