@@ -9,17 +9,15 @@
 // ------------------------------------------------------------------------------
 using System;
 using Playnomics.LitJson;
-namespace Playnomics.Unity
+
+public interface IPlaynomicsPlacementDelegate
 {
-	public interface IPlaynomicsPlacementDelegate
-	{
-		void OnShow(JsonData rawData);
+	void OnShow(JsonData rawData);
 
-		void OnTouch(JsonData rawData);
+	void OnTouch(JsonData rawData);
 
-		void OnClose(JsonData rawData);
+	void OnClose(JsonData rawData);
 
-		void OnRenderFailed();
-	}
+	void OnRenderFailed();
 }
 
