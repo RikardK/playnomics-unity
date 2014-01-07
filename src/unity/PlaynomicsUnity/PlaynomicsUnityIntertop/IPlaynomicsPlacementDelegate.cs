@@ -11,7 +11,7 @@ using System;
 using Playnomics.LitJson;
 namespace Playnomics.Unity
 {
-	public interface IPlacementDelegate
+	public interface IPlaynomicsPlacementDelegate
 	{
 		void OnShow(JsonData rawData);
 

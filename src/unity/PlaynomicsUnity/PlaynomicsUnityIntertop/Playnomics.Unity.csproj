@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Playnomics.cs" />
-    <Compile Include="IPlacementDelegate.cs" />
+    <Compile Include="IPlaynomicsPlacementDelegate.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
