@@ -5,9 +5,6 @@ using System.Runtime.InteropServices;
 
 public class PlacementDelegate : IPlaynomicsPlacementDelegate 
 {
-	[DllImport ("__Internal")]
-	private static extern void PNDisplayUIAlert(string message);
-
 	public void OnShow(JsonData rawData)
 	{
 		//just post the message to Android Activity
@@ -19,7 +16,9 @@ public class PlacementDelegate : IPlaynomicsPlacementDelegate
 			shimClass.CallStatic("toastMessage", new object[1] { message });
 		}
 #elif UNITY_IPHONE  && !UNITY_EDITOR
-		PNDisplayUIAlert(message);
+		var notification = new LocalNotification();
+		notification.alertBody = message;
+		NotificationServices.PresentLocalNotificationNow(notification);
 #endif
 	}
 	
@@ -33,7 +32,9 @@ public class PlacementDelegate : IPlaynomicsPlacementDelegate
 			shimClass.CallStatic("toastMessage", new object[1] { message });
 		}
 		#elif UNITY_IPHONE  && !UNITY_EDITOR
-		PNDisplayUIAlert(message);
+		var notification = new LocalNotification();
+		notification.alertBody = message;
+		NotificationServices.PresentLocalNotificationNow(notification);
 		#endif
 	}
 	
@@ -47,7 +48,9 @@ public class PlacementDelegate : IPlaynomicsPlacementDelegate
 			shimClass.CallStatic("toastMessage", new object[1] { message });
 		}
 		#elif UNITY_IPHONE  && !UNITY_EDITOR
-		PNDisplayUIAlert(message);
+		var notification = new LocalNotification();
+		notification.alertBody = message;
+		NotificationServices.PresentLocalNotificationNow(notification);
 		#endif
 	}
 	
@@ -59,7 +62,9 @@ public class PlacementDelegate : IPlaynomicsPlacementDelegate
 			shimClass.CallStatic("toastMessage", new object[1] { "Render Failed" });
 		}
 		#elif UNITY_IPHONE  && !UNITY_EDITOR
-		PNDisplayUIAlert("Render Failed");
+		var notification = new LocalNotification();
+		notification.alertBody = "Render Failed";
+		NotificationServices.PresentLocalNotificationNow(notification);
 		#endif
 	}
 }
