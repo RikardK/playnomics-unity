@@ -35,7 +35,7 @@ using Playnomics.Unity;
 public class Integration : MonoBehaviour {
     void Start () {
         const long appId = <APPID>L;
-        PN.StartSDK(appId);
+        PlayUnity.StartSDK(appId);
     }
 }
 ```
@@ -78,8 +78,8 @@ using Playnomics.Unity;
 public class Integration : MonoBehaviour {
     void Start () {
         const long appId = <APPID>L;
-        PN.StartSDK(appId);
-        PN.PreloadPlacements("appStart", "levelComplete");
+        PlayUnity.StartSDK(appId);
+        PlayUnity.PreloadPlacements("appStart", "levelComplete");
     }
 }
 ```
@@ -124,7 +124,7 @@ Using an implementation of `IPlacementDelegate` your application can receive not
 
 ```csharp
 using Playnomics.LitJson;
-public interface IPlacementDelegate 
+public interface IPlaynomicsPlacementDelegate
 {
     void onShow(JsonData jsonData);
 
@@ -218,7 +218,7 @@ public static void TransactionInUSD(float priceInUSD, int quantity);
 float priceInUSD = 0.99f;
 int quantity = 1;
 
-PN.TransactionInUSD(priceInUSD, quantity);
+PlayUnity.TransactionInUSD(priceInUSD, quantity);
 ```
 
 ## Install Attribution
@@ -268,7 +268,7 @@ public static void AttributeInstall(string source, string campaign,
 string source = "AdMob";
 string campaign = "Holiday";
 DateTime installDate = DateTime.UtcNow;
-PN.AttributeInstall(source, campaign, installDate);
+PlayUnity.AttributeInstall(source, campaign, installDate);
 ```
 
 ## Custom Event Tracking
@@ -303,7 +303,7 @@ Example client-side calls for a user reaching a event, with generated IDs:
 
 ```csharp
 string eventName = "level 1 complete";
-PN.CustomEvent(eventName);
+PlayUnity.CustomEvent(eventName);
 ```
 
 Push Notifications
@@ -311,7 +311,7 @@ Push Notifications
 
 We currently support push notifications for iOS and Android via Google Cloud Messaging.
 
-Please review the respective wiki pages for Android and iOS to setup your application for push notifications.
+Please review the respective wiki pages for [Android](https://github.com/playnomics/playnomics-unity/wiki/Android-Manifest-Setup) and [iOS](https://github.com/playnomics/playnomics-unity/wiki/iOS-Setup) to setup your application for push notifications.
 
 Support Issues
 ==============
@@ -321,7 +321,7 @@ Change Log
 ==========
 #### Version 1.0.0
 * Supports Unity games built for Android and iOS
-    * Based on the iOS SDK Version 1.1.0 - compatible for iOS 5 and above
+    * Based on the iOS SDK Version 1.5.0 - compatible for iOS 5 and above
     * Based on the Android SDK Version 1.2.0 -  compatible with Gingerbread 2.3.3 (API v 10) and above
 * Includes support for 3rd Party Ads, Fullscreen Internal Messages, and Segmented Push Notifications
 * Supports testing and validation through test devices (IDFA for iOS and Android ID for Android)
