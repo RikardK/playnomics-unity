@@ -16,18 +16,17 @@ NSString* PNCreateNSString (const char* string)
 const char* PNMakeStringCopy(NSString *nsString)
 {
     const char* utf8Val = nsString ? [nsString UTF8String] : "";
-    
 	const char* res = (char*)malloc(strlen(utf8Val) + 1);
 	strcpy(res, utf8Val);
 	return res;
 }
 
-void PNStartSDK(long applicationId)
+void PNStart(long long applicationId)
 {
     [Playnomics startWithApplicationId:applicationId];
 }
 
-void PNStartSDK(long applicationId, const char* userId)
+void PNStartWithUserId(long long applicationId, const char* userId)
 {
     NSString *nsUserId = PNCreateNSString(userId);
     [Playnomics startWithApplicationId:applicationId andUserId: nsUserId];
@@ -55,12 +54,12 @@ void PNPreloadPlacement(const char* placementName)
 
 void PNShowPlacement(const char* placementName)
 {
-    if(delegate == nil){
+    if(!delegate){
         delegate = [[PNDelegate alloc] init];
     }
 
     NSString *nsPlacementName = PNCreateNSString(placementName);
-    [Playnomics showPlacementWithName: nsPlacementName];
+    [Playnomics showPlacementWithName: nsPlacementName rawDelegate:delegate];
 }
 
 void PNHidePlacement(const char* placementName)
@@ -75,14 +74,14 @@ void PNAttributeInstall(const char* source)
     [Playnomics attributeInstallToSource: nsSource];
 }
 
-void PNAttributeInstall(const char* source, const char* campaign)
+void PNAttributeInstallWithCampaign(const char* source, const char* campaign)
 {
     NSString *nsSource = PNCreateNSString(source);
     NSString *nsCampaign = PNCreateNSString(campaign);
     [Playnomics attributeInstallToSource: nsSource withCampaign: nsCampaign];
 }
 
-void PNAttributeInstall(const char* source, const char* campaign, long installTimeMilliseconds)
+void PNAttributeInstallWithCampaignTime(const char* source, const char* campaign, long long installTimeMilliseconds)
 {
     NSString *nsSource = PNCreateNSString(source);
     NSString *nsCampaign = PNCreateNSString(campaign);
@@ -92,27 +91,7 @@ void PNAttributeInstall(const char* source, const char* campaign, long installTi
     [nsInstallDate autorelease];
 }
 
-void PNOnShow(NSString *rawJson)
-{
-    UnitySendMessage("Playnomics", "OnShow", rawJson ? [rawJson UTF8String] : "");
-}
-
-void PNOnTouch(NSString *rawJson)
-{
-    UnitySendMessage("Playnomics", "OnTouch", rawJson ? [rawJson UTF8String] : "");
-}
-
-void PNOnClose(NSString *rawJson)
-{
-    UnitySendMessage("Playnomics", "OnClose", rawJson ? [rawJson UTF8String] : "");
-}
-
-void PNOnRenderFailed()
-{
-    UnitySendMessage("Playnomics", "OnRenderFailed", "");
-}
-
-void PNStop
+void PNStop()
 {
     [delegate autorelease];
 }
