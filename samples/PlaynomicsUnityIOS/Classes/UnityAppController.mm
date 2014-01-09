@@ -31,7 +31,7 @@
 #include "Unity/GlesHelper.h"
 #include "PluginBase/AppDelegateListener.h"
 
-
+#include "Playnomics.h"
 
 // Time to process events in seconds.
 #define kInputProcessingTime                    0.001
@@ -296,12 +296,14 @@ void UnityInitTrampoline()
 {
 	AppController_SendNotificationWithArg(kUnityDidReceiveRemoteNotification, userInfo);
 	UnitySendRemoteNotification(userInfo);
+    [Playnomics pushNotificationsWithPayload:userInfo];
 }
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	AppController_SendNotificationWithArg(kUnityDidRegisterForRemoteNotificationsWithDeviceToken, deviceToken);
 	UnitySendDeviceToken(deviceToken);
+    [Playnomics enablePushNotificationsWithToken:deviceToken];
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
@@ -331,7 +333,24 @@ void UnityInitTrampoline()
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
 	printf_console("-> applicationDidFinishLaunching()\n");
-	// get local notification
+	
+    [Playnomics setPlacementParentView: _rootView];
+    //Optionally, you can all set the logging level for debugging on the iOS device.
+    //By default the level is PNLogLevelError
+    [Playnomics setLoggingLevel:PNLogLevelVerbose];
+    
+    //enable notifications
+    UIApplication *app = [UIApplication sharedApplication];
+    [app registerForRemoteNotificationTypes: (UIRemoteNotificationType) (UIRemoteNotificationTypeBadge
+                                                                         | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    //report push notification interactions that led to app launch
+    if (launchOptions && [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSDictionary *pushInfo = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        [Playnomics pushNotificationsWithPayload:pushInfo];
+    }
+    
+    // get local notification
 	if (&UIApplicationLaunchOptionsLocalNotificationKey != nil)
 	{
 		UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
