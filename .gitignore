@@ -12,5 +12,10 @@ target/
 *.pidb
 *.userprefs
 
+
+
 #Ignore this file it's too large for GitHub
 libiPhone-lib.a
+
+#don't check in userdata for xcode
+xcuserdata/
