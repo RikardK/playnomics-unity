@@ -3,6 +3,8 @@
 #include "RegisterClasses.h"
 #include "RegisterMonoModules.h"
 
+#import "Playnomics.h"
+
 // Hack to work around iOS SDK 4.3 linker problem
 // we need at least one __TEXT, __const section entry in main application .o files
 // to get this section emitted at right time and so avoid LC_ENCRYPTION_INFO size miscalculation
@@ -25,7 +27,7 @@ int main(int argc, char* argv[])
 	RegisterMonoModules();
 	NSLog(@"-> registered mono modules %p\n", &constsection);
 
-	UIApplicationMain(argc, argv, nil, [NSString stringWithUTF8String:AppControllerClassName]);
+	UIApplicationMain(argc, argv, NSStringFromClass([PNApplication class]), [NSString stringWithUTF8String:AppControllerClassName]);
 
 	[pool release];
 	return 0;
