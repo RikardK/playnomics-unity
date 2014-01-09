@@ -11,3 +11,6 @@ target/
 
 *.pidb
 *.userprefs
+
+#Ignore this file it's too large for GitHub
+libiPhone-lib.a
