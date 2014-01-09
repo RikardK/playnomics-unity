@@ -334,10 +334,6 @@ void UnityInitTrampoline()
 {
 	printf_console("-> applicationDidFinishLaunching()\n");
 	
-    [Playnomics setPlacementParentView: _rootView];
-    //Optionally, you can all set the logging level for debugging on the iOS device.
-    //By default the level is PNLogLevelError
-    [Playnomics setLoggingLevel:PNLogLevelVerbose];
     
     //enable notifications
     UIApplication *app = [UIApplication sharedApplication];
@@ -378,7 +374,12 @@ void UnityInitTrampoline()
 
 	[self preStartUnity];
 	[self performSelector:@selector(startUnity:) withObject:application afterDelay:0];
-
+    
+    [Playnomics setPlacementParentView: _rootView];
+    //Optionally, you can all set the logging level for debugging on the iOS device.
+    //By default the level is PNLogLevelError
+    [Playnomics setLoggingLevel:PNLogLevelVerbose];
+    
 	return NO;
 }
 
