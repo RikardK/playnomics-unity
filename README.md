@@ -36,8 +36,8 @@ public class Integration : MonoBehaviour {
 
 #if UNITY_ANDROID
         const long appId = <ANDROID-APPID>L;
-#elif UNITY_IPHONE
-        const long appId = <ANDROID-APPID>L;
+#else
+        const long appId = <IPHONE-APPID>L;
 #endif
         Playnomics.StartSDK(appId);
     }
@@ -80,7 +80,11 @@ public static void PreloadPlacements(params string[] placementNames);
 ```csharp
 public class Integration : MonoBehaviour {
     void Start () {
-        const long appId = <APPID>L;
+#if UNITY_ANDROID
+        const long appId = <ANDROID-APPID>L;
+#else
+        const long appId = <IPHONE-APPID>L;
+#endif
         Playnomics.StartSDK(appId);
         Playnomics.PreloadPlacements("appStart", "levelComplete");
     }
