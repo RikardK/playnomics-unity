@@ -15,7 +15,7 @@ extern "C"
 	extern gpointer*	mono_aot_module_Assembly_CSharp_firstpass_info; // Assembly-CSharp-firstpass.dll
 	extern gpointer*	mono_aot_module_Assembly_CSharp_info; // Assembly-CSharp.dll
 	extern gpointer*	mono_aot_module_Mono_Security_info; // Mono.Security.dll
-	extern gpointer*	mono_aot_module_Playnomics_LitJson_info; // Playnomics.LitJson.dll
+	extern gpointer*	mono_aot_module_Play_LitJson_info; // Play.LitJson.dll
 	extern gpointer*	mono_aot_module_System_info; // System.dll
 	extern gpointer*	mono_aot_module_UnityEngine_info; // UnityEngine.dll
 	extern gpointer*	mono_aot_module_mscorlib_info; // mscorlib.dll
@@ -46,7 +46,7 @@ void RegisterMonoModules()
 	mono_aot_register_module(mono_aot_module_Assembly_CSharp_firstpass_info);
 	mono_aot_register_module(mono_aot_module_Assembly_CSharp_info);
 	mono_aot_register_module(mono_aot_module_Mono_Security_info);
-	mono_aot_register_module(mono_aot_module_Playnomics_LitJson_info);
+	mono_aot_register_module(mono_aot_module_Play_LitJson_info);
 	mono_aot_register_module(mono_aot_module_System_info);
 	mono_aot_register_module(mono_aot_module_UnityEngine_info);
 	mono_aot_register_module(mono_aot_module_mscorlib_info);

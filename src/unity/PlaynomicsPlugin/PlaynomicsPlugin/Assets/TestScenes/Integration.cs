@@ -7,9 +7,9 @@ public class Integration : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		const long appId = 733674050111288021L;
-		PlayUnity.StartSDK(appId);
-		PlayUnity.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
-		PlayUnity.PlacementDelegate = new PlacementDelegate();
+		Playnomics.StartSDK(appId);
+		Playnomics.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
+		Playnomics.PlacementDelegate = new PlacementDelegate();
 	}
 
 	// Update is called once per frame
@@ -36,44 +36,44 @@ public class Integration : MonoBehaviour {
 			string source = "source";
 			string campaign = "campaign";
 			DateTime installDate = DateTime.UtcNow;
-			PlayUnity.AttributeInstall(source, campaign, installDate);
+			Playnomics.AttributeInstall(source, campaign, installDate);
 		}
 		
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Transaction"))
 		{
 			float price = 0.99f;
 			int quantity = 1;
-			PlayUnity.TransactionInUSD(price, quantity);
+			Playnomics.TransactionInUSD(price, quantity);
 		}
 				
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "App Start Milestone"))
 		{
-			PlayUnity.CustomEvent("app start");
+			Playnomics.CustomEvent("app start");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "HTTP"))
 		{
-			PlayUnity.ShowPlacement("http");
+			Playnomics.ShowPlacement("http");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Ads"))
 		{
-			PlayUnity.ShowPlacement("ad");
+			Playnomics.ShowPlacement("ad");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Null Target"))
 		{
-			PlayUnity.ShowPlacement("nullTarget");
+			Playnomics.ShowPlacement("nullTarget");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "JSON"))
 		{
-			PlayUnity.ShowPlacement("json");
+			Playnomics.ShowPlacement("json");
 		}
 
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "No Show"))
 		{
-			PlayUnity.ShowPlacement("noShow");
+			Playnomics.ShowPlacement("noShow");
 		}
 	}
 }

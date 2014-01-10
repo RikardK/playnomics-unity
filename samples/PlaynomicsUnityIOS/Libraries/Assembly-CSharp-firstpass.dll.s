@@ -5,7 +5,7 @@ methods:
 	.space 16
 	.align 2
 Lm_4:
-m_PlayUnity__ctor:
+m_Playnomics__ctor:
 _m_4:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -16,7 +16,7 @@ bl p_1
 Lme_4:
 	.align 2
 Lm_5:
-m_PlayUnity__cctor:
+m_Playnomics__cctor:
 _m_5:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,13,176,160,225,0,16,159,229,0,0,0,234
@@ -28,7 +28,7 @@ _m_5:
 Lme_5:
 	.align 2
 Lm_6:
-m_PlayUnity_get_PlacementDelegate:
+m_Playnomics_get_PlacementDelegate:
 _m_6:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,13,176,160,225,0,0,159,229,0,0,0,234
@@ -38,7 +38,7 @@ _m_6:
 Lme_6:
 	.align 2
 Lm_7:
-m_PlayUnity_set_PlacementDelegate_IPlaynomicsPlacementDelegate:
+m_Playnomics_set_PlacementDelegate_IPlaynomicsPlacementDelegate:
 _m_7:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,159,229
@@ -49,7 +49,7 @@ _m_7:
 Lme_7:
 	.align 2
 Lm_12:
-m_PlayUnity_StartSDK_long:
+m_Playnomics_StartSDK_long:
 _m_12:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -62,7 +62,7 @@ bl p_3
 Lme_12:
 	.align 2
 Lm_13:
-m_PlayUnity_StartSDK_long_string:
+m_Playnomics_StartSDK_long_string:
 _m_13:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,16,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -75,7 +75,7 @@ bl p_3
 Lme_13:
 	.align 2
 Lm_14:
-m_PlayUnity_InitializeGameObjects:
+m_Playnomics_InitializeGameObjects:
 _m_14:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,159,229,0,0,0,234
@@ -111,7 +111,7 @@ bl p_8
 Lme_14:
 	.align 2
 Lm_15:
-m_PlayUnity_CustomEvent_string:
+m_Playnomics_CustomEvent_string:
 _m_15:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -122,7 +122,7 @@ bl p_9
 Lme_15:
 	.align 2
 Lm_16:
-m_PlayUnity_TransactionInUSD_single_int:
+m_Playnomics_TransactionInUSD_single_int:
 _m_16:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,16,208,77,226,13,176,160,225,8,0,139,229,12,16,139,229
@@ -134,7 +134,7 @@ bl p_10
 Lme_16:
 	.align 2
 Lm_17:
-m_PlayUnity_PreloadPlacements_string__:
+m_Playnomics_PreloadPlacements_string__:
 _m_17:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,112,89,45,233,12,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -151,7 +151,7 @@ bl p_12
 Lme_17:
 	.align 2
 Lm_18:
-m_PlayUnity_ShowPlacement_string:
+m_Playnomics_ShowPlacement_string:
 _m_18:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -162,7 +162,7 @@ bl p_13
 Lme_18:
 	.align 2
 Lm_19:
-m_PlayUnity_HidePlacement_string:
+m_Playnomics_HidePlacement_string:
 _m_19:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -173,7 +173,7 @@ bl p_14
 Lme_19:
 	.align 2
 Lm_1a:
-m_PlayUnity_AttributeInstall_string:
+m_Playnomics_AttributeInstall_string:
 _m_1a:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,0,0,155,229
@@ -184,7 +184,7 @@ bl p_15
 Lme_1a:
 	.align 2
 Lm_1b:
-m_PlayUnity_AttributeInstall_string_string:
+m_Playnomics_AttributeInstall_string_string:
 _m_1b:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -196,7 +196,7 @@ bl p_16
 Lme_1b:
 	.align 2
 Lm_1c:
-m_PlayUnity_AttributeInstall_string_string_System_DateTime:
+m_Playnomics_AttributeInstall_string_string_System_DateTime:
 _m_1c:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,104,208,77,226,13,176,160,225,84,0,139,229,88,16,139,229
@@ -228,7 +228,7 @@ bl p_22
 Lme_1c:
 	.align 2
 Lm_1d:
-m_PlayUnity_OnShow_string:
+m_Playnomics_OnShow_string:
 _m_1d:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,16,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -246,7 +246,7 @@ bl _m_21
 Lme_1d:
 	.align 2
 Lm_1e:
-m_PlayUnity_OnClose_string:
+m_Playnomics_OnClose_string:
 _m_1e:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,16,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -264,7 +264,7 @@ bl _m_21
 Lme_1e:
 	.align 2
 Lm_1f:
-m_PlayUnity_OnTouch_string:
+m_Playnomics_OnTouch_string:
 _m_1f:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,16,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -282,7 +282,7 @@ bl _m_21
 Lme_1f:
 	.align 2
 Lm_20:
-m_PlayUnity_OnRenderFailed_string:
+m_Playnomics_OnRenderFailed_string:
 _m_20:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,0,89,45,233,8,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -297,7 +297,7 @@ _m_20:
 Lme_20:
 	.align 2
 Lm_21:
-m_PlayUnity_GetJsonData_string:
+m_Playnomics_GetJsonData_string:
 _m_21:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,64,89,45,233,52,208,77,226,13,176,160,225,40,0,139,229,44,16,139,229
@@ -348,7 +348,7 @@ bl p_30
 Lme_23:
 	.align 2
 Lm_24:
-m_wrapper_managed_to_native_PlayUnity_PNStart_long:
+m_wrapper_managed_to_native_Playnomics_PNStart_long:
 _m_24:
 
 	.byte 13,192,160,225,240,95,45,233,112,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229
@@ -369,7 +369,7 @@ bl p_30
 Lme_24:
 	.align 2
 Lm_25:
-m_wrapper_managed_to_native_PlayUnity_PNStartWithUserId_long_string:
+m_wrapper_managed_to_native_Playnomics_PNStartWithUserId_long_string:
 _m_25:
 
 	.byte 13,192,160,225,240,95,45,233,112,208,77,226,13,176,160,225,0,0,139,229,4,16,139,229,2,160,160,225
@@ -395,7 +395,7 @@ bl p_30
 Lme_25:
 	.align 2
 Lm_26:
-m_wrapper_managed_to_native_PlayUnity_PNCustomEvent_string:
+m_wrapper_managed_to_native_Playnomics_PNCustomEvent_string:
 _m_26:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,160,160,225
@@ -421,7 +421,7 @@ bl p_30
 Lme_26:
 	.align 2
 Lm_27:
-m_wrapper_managed_to_native_PlayUnity_PNTransactionInUSD_single_int:
+m_wrapper_managed_to_native_Playnomics_PNTransactionInUSD_single_int:
 _m_27:
 
 	.byte 13,192,160,225,240,95,45,233,120,208,77,226,13,176,160,225,8,0,139,229,12,16,139,229
@@ -442,7 +442,7 @@ bl p_30
 Lme_27:
 	.align 2
 Lm_28:
-m_wrapper_managed_to_native_PlayUnity_PNPreloadPlacement_string:
+m_wrapper_managed_to_native_Playnomics_PNPreloadPlacement_string:
 _m_28:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,160,160,225
@@ -468,7 +468,7 @@ bl p_30
 Lme_28:
 	.align 2
 Lm_29:
-m_wrapper_managed_to_native_PlayUnity_PNShowPlacement_string:
+m_wrapper_managed_to_native_Playnomics_PNShowPlacement_string:
 _m_29:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,160,160,225
@@ -494,7 +494,7 @@ bl p_30
 Lme_29:
 	.align 2
 Lm_2a:
-m_wrapper_managed_to_native_PlayUnity_PNHidePlacement_string:
+m_wrapper_managed_to_native_Playnomics_PNHidePlacement_string:
 _m_2a:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,160,160,225
@@ -520,7 +520,7 @@ bl p_30
 Lme_2a:
 	.align 2
 Lm_2b:
-m_wrapper_managed_to_native_PlayUnity_PNAttributeInstall_string:
+m_wrapper_managed_to_native_Playnomics_PNAttributeInstall_string:
 _m_2b:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,160,160,225
@@ -546,7 +546,7 @@ bl p_30
 Lme_2b:
 	.align 2
 Lm_2c:
-m_wrapper_managed_to_native_PlayUnity_PNAttributeInstallWithCampaign_string_string:
+m_wrapper_managed_to_native_Playnomics_PNAttributeInstallWithCampaign_string_string:
 _m_2c:
 
 	.byte 13,192,160,225,240,95,45,233,104,208,77,226,13,176,160,225,0,96,160,225,1,160,160,225
@@ -578,7 +578,7 @@ bl p_30
 Lme_2c:
 	.align 2
 Lm_2d:
-m_wrapper_managed_to_native_PlayUnity_PNAttributeInstallWithCampaignTime_string_string_long:
+m_wrapper_managed_to_native_Playnomics_PNAttributeInstallWithCampaignTime_string_string_long:
 _m_2d:
 
 	.byte 13,192,160,225,240,95,45,233,112,208,77,226,13,176,160,225,0,96,160,225,1,160,160,225,0,32,139,229,4,48,139,229
@@ -830,42 +830,42 @@ method_info_offsets:
 extra_method_info:
 
 	.byte 0,1,6,83,121,115,116,101,109,46,65,114,114,97,121,58,71,101,116,71,101,110,101,114,105,99,86,97,108,117,101,73
-	.byte 109,112,108,32,40,105,110,116,44,111,98,106,101,99,116,38,41,0,1,6,80,108,97,121,85,110,105,116,121,58,80,78
-	.byte 83,116,97,114,116,32,40,108,111,110,103,41,0,1,6,80,108,97,121,85,110,105,116,121,58,80,78,83,116,97,114,116
-	.byte 87,105,116,104,85,115,101,114,73,100,32,40,108,111,110,103,44,115,116,114,105,110,103,41,0,1,6,80,108,97,121,85
-	.byte 110,105,116,121,58,80,78,67,117,115,116,111,109,69,118,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108
-	.byte 97,121,85,110,105,116,121,58,80,78,84,114,97,110,115,97,99,116,105,111,110,73,110,85,83,68,32,40,115,105,110,103
-	.byte 108,101,44,105,110,116,41,0,1,6,80,108,97,121,85,110,105,116,121,58,80,78,80,114,101,108,111,97,100,80,108,97
-	.byte 99,101,109,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108,97,121,85,110,105,116,121,58,80,78,83,104
-	.byte 111,119,80,108,97,99,101,109,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108,97,121,85,110,105,116,121
-	.byte 58,80,78,72,105,100,101,80,108,97,99,101,109,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108,97,121
-	.byte 85,110,105,116,121,58,80,78,65,116,116,114,105,98,117,116,101,73,110,115,116,97,108,108,32,40,115,116,114,105,110,103
-	.byte 41,0,1,6,80,108,97,121,85,110,105,116,121,58,80,78,65,116,116,114,105,98,117,116,101,73,110,115,116,97,108,108
-	.byte 87,105,116,104,67,97,109,112,97,105,103,110,32,40,115,116,114,105,110,103,44,115,116,114,105,110,103,41,0,1,6,80
-	.byte 108,97,121,85,110,105,116,121,58,80,78,65,116,116,114,105,98,117,116,101,73,110,115,116,97,108,108,87,105,116,104,67
-	.byte 97,109,112,97,105,103,110,84,105,109,101,32,40,115,116,114,105,110,103,44,115,116,114,105,110,103,44,108,111,110,103,41
-	.byte 0
+	.byte 109,112,108,32,40,105,110,116,44,111,98,106,101,99,116,38,41,0,1,6,80,108,97,121,110,111,109,105,99,115,58,80
+	.byte 78,83,116,97,114,116,32,40,108,111,110,103,41,0,1,6,80,108,97,121,110,111,109,105,99,115,58,80,78,83,116,97
+	.byte 114,116,87,105,116,104,85,115,101,114,73,100,32,40,108,111,110,103,44,115,116,114,105,110,103,41,0,1,6,80,108,97
+	.byte 121,110,111,109,105,99,115,58,80,78,67,117,115,116,111,109,69,118,101,110,116,32,40,115,116,114,105,110,103,41,0,1
+	.byte 6,80,108,97,121,110,111,109,105,99,115,58,80,78,84,114,97,110,115,97,99,116,105,111,110,73,110,85,83,68,32,40
+	.byte 115,105,110,103,108,101,44,105,110,116,41,0,1,6,80,108,97,121,110,111,109,105,99,115,58,80,78,80,114,101,108,111
+	.byte 97,100,80,108,97,99,101,109,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108,97,121,110,111,109,105,99
+	.byte 115,58,80,78,83,104,111,119,80,108,97,99,101,109,101,110,116,32,40,115,116,114,105,110,103,41,0,1,6,80,108,97
+	.byte 121,110,111,109,105,99,115,58,80,78,72,105,100,101,80,108,97,99,101,109,101,110,116,32,40,115,116,114,105,110,103,41
+	.byte 0,1,6,80,108,97,121,110,111,109,105,99,115,58,80,78,65,116,116,114,105,98,117,116,101,73,110,115,116,97,108,108
+	.byte 32,40,115,116,114,105,110,103,41,0,1,6,80,108,97,121,110,111,109,105,99,115,58,80,78,65,116,116,114,105,98,117
+	.byte 116,101,73,110,115,116,97,108,108,87,105,116,104,67,97,109,112,97,105,103,110,32,40,115,116,114,105,110,103,44,115,116
+	.byte 114,105,110,103,41,0,1,6,80,108,97,121,110,111,109,105,99,115,58,80,78,65,116,116,114,105,98,117,116,101,73,110
+	.byte 115,116,97,108,108,87,105,116,104,67,97,109,112,97,105,103,110,84,105,109,101,32,40,115,116,114,105,110,103,44,115,116
+	.byte 114,105,110,103,44,108,111,110,103,41,0
 
 .text
 	.align 3
 extra_method_table:
 
 	.long 19,0,0,0,0,0,0,0
-	.long 0,0,0,0,0,77,37,21
-	.long 0,0,0,413,45,0,0,0
-	.long 0,50,36,19,121,38,0,200
+	.long 0,0,0,0,0,78,37,21
+	.long 0,0,0,422,45,0,0,0
+	.long 0,50,36,19,123,38,0,204
 	.long 40,0,0,0,0,0,0,0
-	.long 314,43,0,0,0,0,1,35
-	.long 0,0,0,0,0,0,0,240
-	.long 41,20,156,39,0,277,42,0
-	.long 354,44,0
+	.long 321,43,0,0,0,0,1,35
+	.long 0,0,0,0,0,0,0,245
+	.long 41,20,159,39,0,283,42,0
+	.long 362,44,0
 .text
 	.align 3
 extra_method_info_offsets:
 
-	.long 11,35,1,36,50,37,77,38
-	.long 121,39,156,40,200,41,240,42
-	.long 277,43,314,44,354,45,413
+	.long 11,35,1,36,50,37,78,38
+	.long 123,39,159,40,204,41,245,42
+	.long 283,43,321,44,362,45,422
 .text
 	.align 3
 method_order:
@@ -882,8 +882,8 @@ method_order_end:
 	.align 3
 class_name_table:
 
-	.short 11, 1, 0, 0, 0, 3, 0, 0
-	.short 0, 0, 0, 0, 0, 0, 0, 2
+	.short 11, 1, 0, 0, 0, 0, 0, 0
+	.short 0, 0, 0, 0, 0, 3, 0, 2
 	.short 0, 0, 0, 0, 0, 0, 0
 .text
 	.align 3
@@ -1062,17 +1062,17 @@ plt_UnityEngine_MonoBehaviour__ctor:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 60,45
 p_2:
-plt_PlayUnity_PNStart_long:
+plt_Playnomics_PNStart_long:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 64,50
 p_3:
-plt_PlayUnity_InitializeGameObjects:
+plt_Playnomics_InitializeGameObjects:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 68,52
 p_4:
-plt_PlayUnity_PNStartWithUserId_long_string:
+plt_Playnomics_PNStartWithUserId_long_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 72,54
@@ -1097,17 +1097,17 @@ plt_UnityEngine_Object_DontDestroyOnLoad_UnityEngine_Object:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 88,92
 p_9:
-plt_PlayUnity_PNCustomEvent_string:
+plt_Playnomics_PNCustomEvent_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 92,97
 p_10:
-plt_PlayUnity_PNTransactionInUSD_single_int:
+plt_Playnomics_PNTransactionInUSD_single_int:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 96,99
 p_11:
-plt_PlayUnity_PNPreloadPlacement_string:
+plt_Playnomics_PNPreloadPlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 100,101
@@ -1117,22 +1117,22 @@ plt__jit_icall_mono_arch_throw_corlib_exception:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 104,103
 p_13:
-plt_PlayUnity_PNShowPlacement_string:
+plt_Playnomics_PNShowPlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 108,138
 p_14:
-plt_PlayUnity_PNHidePlacement_string:
+plt_Playnomics_PNHidePlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 112,140
 p_15:
-plt_PlayUnity_PNAttributeInstall_string:
+plt_Playnomics_PNAttributeInstall_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 116,142
 p_16:
-plt_PlayUnity_PNAttributeInstallWithCampaign_string_string:
+plt_Playnomics_PNAttributeInstallWithCampaign_string_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 120,144
@@ -1162,7 +1162,7 @@ plt__jit_icall___emul_fconv_to_i8:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 140,166
 p_22:
-plt_PlayUnity_PNAttributeInstallWithCampaignTime_string_string_long:
+plt_Playnomics_PNAttributeInstallWithCampaignTime_string_string_long:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 144,187
@@ -1172,7 +1172,7 @@ plt_string_IsNullOrEmpty_string:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 148,189
 p_24:
-plt_Playnomics_LitJson_JsonMapper_ToObject_string:
+plt_Play_LitJson_JsonMapper_ToObject_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 152,194
@@ -1207,7 +1207,7 @@ plt__jit_icall_mono_thread_interruption_checkpoint:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 176,337
 p_31:
-plt__icall_native_PlayUnity_PNStart_long:
+plt__icall_native_Playnomics_PNStart_long:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 180,375
@@ -1217,7 +1217,7 @@ plt__jit_icall_mono_string_to_lpstr:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 184,377
 p_33:
-plt__icall_native_PlayUnity_PNStartWithUserId_long_string:
+plt__icall_native_Playnomics_PNStartWithUserId_long_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 188,400
@@ -1227,42 +1227,42 @@ plt__jit_icall_mono_marshal_free:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 192,402
 p_35:
-plt__icall_native_PlayUnity_PNCustomEvent_string:
+plt__icall_native_Playnomics_PNCustomEvent_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 196,422
 p_36:
-plt__icall_native_PlayUnity_PNTransactionInUSD_single_int:
+plt__icall_native_Playnomics_PNTransactionInUSD_single_int:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 200,424
 p_37:
-plt__icall_native_PlayUnity_PNPreloadPlacement_string:
+plt__icall_native_Playnomics_PNPreloadPlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 204,426
 p_38:
-plt__icall_native_PlayUnity_PNShowPlacement_string:
+plt__icall_native_Playnomics_PNShowPlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 208,428
 p_39:
-plt__icall_native_PlayUnity_PNHidePlacement_string:
+plt__icall_native_Playnomics_PNHidePlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 212,430
 p_40:
-plt__icall_native_PlayUnity_PNAttributeInstall_string:
+plt__icall_native_Playnomics_PNAttributeInstall_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 216,432
 p_41:
-plt__icall_native_PlayUnity_PNAttributeInstallWithCampaign_string_string:
+plt__icall_native_Playnomics_PNAttributeInstallWithCampaign_string_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 220,434
 p_42:
-plt__icall_native_PlayUnity_PNAttributeInstallWithCampaignTime_string_string_long:
+plt__icall_native_Playnomics_PNAttributeInstallWithCampaignTime_string_string_long:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_firstpass_got - . + 224,436
@@ -1273,7 +1273,7 @@ mono_image_table:
 
 	.long 4
 	.asciz "Assembly-CSharp-firstpass"
-	.asciz "C988F89A-7C84-430A-A06E-951F9F330BFC"
+	.asciz "A75A67ED-B085-4D9C-BE54-74C88A304859"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -1293,8 +1293,8 @@ mono_image_table:
 	.align 3
 
 	.long 1,2,0,5,0
-	.asciz "Playnomics.LitJson"
-	.asciz "FF3F3AB6-2F40-4528-AACB-E7038C506F55"
+	.asciz "Play.LitJson"
+	.asciz "9E708298-F1EA-4B96-869C-62D2DAFBC5DA"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -1319,7 +1319,7 @@ mono_aot_file_info:
 .text
 	.align 2
 mono_assembly_guid:
-	.asciz "C988F89A-7C84-430A-A06E-951F9F330BFC"
+	.asciz "A75A67ED-B085-4D9C-BE54-74C88A304859"
 .text
 	.align 2
 mono_aot_version:

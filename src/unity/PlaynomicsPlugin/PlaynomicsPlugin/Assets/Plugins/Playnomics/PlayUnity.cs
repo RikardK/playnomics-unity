@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
-using Playnomics.LitJson;
+using Play.LitJson;
 
-public class PlayUnity : MonoBehaviour
+public class Playnomics : MonoBehaviour
 {
 	private static bool initialized;
 	private static GameObject playGameObject;
@@ -73,7 +73,7 @@ public class PlayUnity : MonoBehaviour
 		if(!initialized)
 		{
 			playGameObject = new GameObject("Playnomics");
-			playGameObject.AddComponent(typeof(PlayUnity));
+			playGameObject.AddComponent(typeof(Playnomics));
 			//keep this game object around for all scenes
 			DontDestroyOnLoad(playGameObject);
 			initialized = true;
@@ -242,7 +242,7 @@ public class PlayUnity : MonoBehaviour
 			if(string.IsNullOrEmpty(rawJsonData)){ return null; }
 			return JsonMapper.ToObject(rawJsonData);
 		} 
-		catch(Playnomics.LitJson.JsonException jex){}
+		catch(Play.LitJson.JsonException jex){}
 		catch(Exception ex){}
 		return null;
    	}

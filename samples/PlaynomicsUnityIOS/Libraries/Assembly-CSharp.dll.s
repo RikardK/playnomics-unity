@@ -259,7 +259,7 @@ _m_4:
 Lme_4:
 	.align 2
 Lm_5:
-m_PlacementDelegate_OnShow_Playnomics_LitJson_JsonData:
+m_PlacementDelegate_OnShow_Play_LitJson_JsonData:
 _m_5:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,32,93,45,233,24,208,77,226,13,176,160,225,8,0,139,229,1,160,160,225
@@ -292,7 +292,7 @@ bl p_23
 Lme_5:
 	.align 2
 Lm_6:
-m_PlacementDelegate_OnTouch_Playnomics_LitJson_JsonData:
+m_PlacementDelegate_OnTouch_Play_LitJson_JsonData:
 _m_6:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,32,93,45,233,24,208,77,226,13,176,160,225,8,0,139,229,1,160,160,225
@@ -325,7 +325,7 @@ bl p_23
 Lme_6:
 	.align 2
 Lm_7:
-m_PlacementDelegate_OnClose_Playnomics_LitJson_JsonData:
+m_PlacementDelegate_OnClose_Play_LitJson_JsonData:
 _m_7:
 
 	.byte 13,192,160,225,128,64,45,233,13,112,160,225,32,93,45,233,24,208,77,226,13,176,160,225,8,0,139,229,1,160,160,225
@@ -627,7 +627,7 @@ plt_UnityEngine_MonoBehaviour__ctor:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 112,100
 p_2:
-plt_PlayUnity_StartSDK_long:
+plt_Playnomics_StartSDK_long:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 116,105
@@ -642,7 +642,7 @@ plt_wrapper_stelemref_object_stelemref_object_intptr_object:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 124,136
 p_5:
-plt_PlayUnity_PreloadPlacements_string__:
+plt_Playnomics_PreloadPlacements_string__:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 128,143
@@ -687,27 +687,27 @@ plt_System_DateTime_get_UtcNow:
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 160,216
 p_14:
-plt_PlayUnity_AttributeInstall_string_string_System_DateTime:
+plt_Playnomics_AttributeInstall_string_string_System_DateTime:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 164,221
 p_15:
-plt_PlayUnity_TransactionInUSD_single_int:
+plt_Playnomics_TransactionInUSD_single_int:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 168,226
 p_16:
-plt_PlayUnity_CustomEvent_string:
+plt_Playnomics_CustomEvent_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 172,231
 p_17:
-plt_PlayUnity_ShowPlacement_string:
+plt_Playnomics_ShowPlacement_string:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 176,236
 p_18:
-plt_Playnomics_LitJson_JsonMapper_ToJson_object:
+plt_Play_LitJson_JsonMapper_ToJson_object:
 
 	.byte 0,192,159,229,12,240,159,231
 	.long mono_aot_Assembly_CSharp_got - . + 180,241
@@ -768,7 +768,7 @@ mono_image_table:
 
 	.long 5
 	.asciz "Assembly-CSharp"
-	.asciz "FAF032CD-DA48-4D23-BF68-1105660949E5"
+	.asciz "E496FF74-E540-4C83-A38C-D9167E532504"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -782,7 +782,7 @@ mono_image_table:
 
 	.long 1,2,0,5,0
 	.asciz "Assembly-CSharp-firstpass"
-	.asciz "C988F89A-7C84-430A-A06E-951F9F330BFC"
+	.asciz "A75A67ED-B085-4D9C-BE54-74C88A304859"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -795,8 +795,8 @@ mono_image_table:
 	.align 3
 
 	.long 0,0,0,0,0
-	.asciz "Playnomics.LitJson"
-	.asciz "FF3F3AB6-2F40-4528-AACB-E7038C506F55"
+	.asciz "Play.LitJson"
+	.asciz "9E708298-F1EA-4B96-869C-62D2DAFBC5DA"
 	.asciz ""
 	.asciz ""
 	.align 3
@@ -821,7 +821,7 @@ mono_aot_file_info:
 .text
 	.align 2
 mono_assembly_guid:
-	.asciz "FAF032CD-DA48-4D23-BF68-1105660949E5"
+	.asciz "E496FF74-E540-4C83-A38C-D9167E532504"
 .text
 	.align 2
 mono_aot_version:

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Playnomics.LitJson;
+using Play.LitJson;
 using System.Runtime.InteropServices;
 
 public class PlacementDelegate : IPlaynomicsPlacementDelegate 
