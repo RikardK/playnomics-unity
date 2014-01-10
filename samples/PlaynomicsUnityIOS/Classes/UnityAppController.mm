@@ -333,20 +333,7 @@ void UnityInitTrampoline()
 - (BOOL)application:(UIApplication*)application didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
 {
 	printf_console("-> applicationDidFinishLaunching()\n");
-	
-    
-    //enable notifications
-    UIApplication *app = [UIApplication sharedApplication];
-    [app registerForRemoteNotificationTypes: (UIRemoteNotificationType) (UIRemoteNotificationTypeBadge
-                                                                         | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
-    //report push notification interactions that led to app launch
-    if (launchOptions && [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
-        NSDictionary *pushInfo = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-        [Playnomics pushNotificationsWithPayload:pushInfo];
-    }
-    
-    // get local notification
+	// get local notification
 	if (&UIApplicationLaunchOptionsLocalNotificationKey != nil)
 	{
 		UILocalNotification *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
@@ -380,6 +367,17 @@ void UnityInitTrampoline()
     //By default the level is PNLogLevelError
     [Playnomics setLoggingLevel:PNLogLevelVerbose];
     
+    //enable notifications
+    UIApplication *app = [UIApplication sharedApplication];
+    [app registerForRemoteNotificationTypes: (UIRemoteNotificationType) (UIRemoteNotificationTypeBadge
+                                                                         | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    //report push notification interactions that led to app launch
+    if (launchOptions && [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey]) {
+        NSDictionary *pushInfo = [launchOptions valueForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        [Playnomics pushNotificationsWithPayload:pushInfo];
+    }
+
 	return NO;
 }
 
