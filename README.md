@@ -31,11 +31,15 @@ To start logging automatically tracking user engagement data, you need to first 
 In the first `Scene` of your game, start the PlayRM Session:
 
 ```csharp
-using Playnomics.Unity;
 public class Integration : MonoBehaviour {
     void Start () {
-        const long appId = <APPID>L;
-        PlayUnity.StartSDK(appId);
+
+#if UNITY_ANDROID
+        const long appId = <ANDROID-APPID>L;
+#elif UNITY_IPHONE
+        const long appId = <ANDROID-APPID>L;
+#endif
+        Playnomics.StartSDK(appId);
     }
 }
 ```
@@ -74,12 +78,11 @@ public static void PreloadPlacements(params string[] placementNames);
 ```
 
 ```csharp
-using Playnomics.Unity;
 public class Integration : MonoBehaviour {
     void Start () {
         const long appId = <APPID>L;
-        PlayUnity.StartSDK(appId);
-        PlayUnity.PreloadPlacements("appStart", "levelComplete");
+        Playnomics.StartSDK(appId);
+        Playnomics.PreloadPlacements("appStart", "levelComplete");
     }
 }
 ```
@@ -123,7 +126,7 @@ Using an implementation of `IPlacementDelegate` your application can receive not
 * Can't be rendered in the view because of connectivity or other issues.
 
 ```csharp
-using Playnomics.LitJson;
+using Play.LitJson;
 public interface IPlaynomicsPlacementDelegate
 {
     void onShow(JsonData jsonData);
@@ -218,7 +221,7 @@ public static void TransactionInUSD(float priceInUSD, int quantity);
 float priceInUSD = 0.99f;
 int quantity = 1;
 
-PlayUnity.TransactionInUSD(priceInUSD, quantity);
+Playnomics.TransactionInUSD(priceInUSD, quantity);
 ```
 
 ## Install Attribution
@@ -268,7 +271,7 @@ public static void AttributeInstall(string source, string campaign,
 string source = "AdMob";
 string campaign = "Holiday";
 DateTime installDate = DateTime.UtcNow;
-PlayUnity.AttributeInstall(source, campaign, installDate);
+Playnomics.AttributeInstall(source, campaign, installDate);
 ```
 
 ## Custom Event Tracking
@@ -303,7 +306,7 @@ Example client-side calls for a user reaching a event, with generated IDs:
 
 ```csharp
 string eventName = "level 1 complete";
-PlayUnity.CustomEvent(eventName);
+Playnomics.CustomEvent(eventName);
 ```
 
 Push Notifications

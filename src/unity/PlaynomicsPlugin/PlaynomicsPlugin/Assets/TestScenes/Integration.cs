@@ -6,7 +6,13 @@ public class Integration : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+#if UNITY_ANDROID
+		//Android ID
 		const long appId = 733674050111288021L;
+#else
+		//iOS ID
+		const long appId = 930459816589800702L;
+#endif
 		Playnomics.StartSDK(appId);
 		Playnomics.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
 		Playnomics.PlacementDelegate = new PlacementDelegate();
