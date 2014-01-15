@@ -1,0 +1,44 @@
+#!/bin/bash
+set -ex
+
+VERSION_NUM=$1
+
+if [[ -z "$1" ]]; then
+    echo "Version number is not set!"
+    exit 1
+fi
+
+BLUE='\033[94m'
+END_COLOR='\033[0m'
+
+function color_log(){
+    echo -e "$BLUE$1$END_COLOR"
+}
+
+FULLSCRIPT=$(which $0)
+BINPATH=`dirname ${FULLSCRIPT}`
+SRC_PATH=${BINPATH}/../src
+
+UNITY_PLUGIN_PATH=$SRC_PATH/unity/PlaynomicsPlugin/PlaynomicsPlugin/Assets/Plugins
+
+TARGET_PATH=${BINPATH}/../bin/Playnomics
+
+if [ -d "$TARGET_PATH" ]; then
+    color_log "Cleaning out old target directory"
+    rm -r ${TARGET_PATH}
+fi
+mkdir ${TARGET_PATH}
+
+color_log "Copy plugin files for packaging"
+
+cp -r ${UNITY_PLUGIN_PATH}/ ${TARGET_PATH}/
+
+color_log "Removing the meta files"
+
+find ${TARGET_PATH} -iname "*.meta" -exec rm '{}' ';'
+
+cd ${TARGET_PATH}/../
+
+color_log "Compressing build into file ${TARGET_PATH}/../playnomics_unity_sdk_v${VERSION_NUM}.tar.gz"
+
+tar -zcf playnomics_unity_sdk_v${VERSION_NUM}.tar.gz Playnomics
