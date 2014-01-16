@@ -114,10 +114,10 @@ public static void ShowPlacement(string placementName);
     </tbody>
 </table>
 
-Optionally, associate an implementation of the `IPlacementDelegate` interface, to process rich data callbacks. See [Using Rich Data Callbacks](#using-rich-data-callbacks) for more information.
+Optionally, associate an implementation of the `IPlaynomicsPlacementDelegate` interface, to process rich data callbacks. See [Using Rich Data Callbacks](#using-rich-data-callbacks) for more information.
 
 ```csharp
-public static IPlacementDelegate PlacementDelegate { get; set; }
+public static IPlaynomicsPlacementDelegate PlacementDelegate { get; set; }
 ```
 
 ## Using Rich Data Callbacks
