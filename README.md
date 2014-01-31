@@ -39,6 +39,9 @@ public class Integration : MonoBehaviour {
 #else
         const long appId = <IPHONE-APPID>L;
 #endif
+        //set the log level, default level is ERROR
+        Playnomics.SetLogLevel(Playnomics.LogLevel.VERBOSE);
+
         Playnomics.StartSDK(appId);
     }
 }
@@ -332,5 +335,9 @@ Change Log
     * Based on the Android SDK Version 1.2.1 -  compatible with Gingerbread 2.3.3 (API v 10) and above
 * Includes support for 3rd Party Ads, Fullscreen Internal Messages, and Segmented Push Notifications
 * Supports testing and validation through test devices (IDFA for iOS and Android ID for Android)
+
+#### Version 1.0.1
+* Minor bug fix - make sure to deallocate the PNDelegate object on application shutdown
+* Allow the developer to specify the log level at Unity layer
 
 View version tags <a href="https://github.com/playnomics/playnomics-unity/tags">here</a>
