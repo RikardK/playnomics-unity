@@ -30,6 +30,8 @@ extern "C"
 	void	PNAttributeInstall();
 	void	PNAttributeInstallWithCampaign();
 	void	PNAttributeInstallWithCampaignTime();
+	void	PNStop();
+	void	PNSetLogLevel();
 	void	UnityNSObject_RetainObject();
 	void	UnityNSObject_ReleaseObject();
 	void	UnityNSError_Code();
@@ -61,6 +63,8 @@ void RegisterMonoModules()
 	mono_dl_register_symbol("PNAttributeInstall", (void*)&PNAttributeInstall);
 	mono_dl_register_symbol("PNAttributeInstallWithCampaign", (void*)&PNAttributeInstallWithCampaign);
 	mono_dl_register_symbol("PNAttributeInstallWithCampaignTime", (void*)&PNAttributeInstallWithCampaignTime);
+	mono_dl_register_symbol("PNStop", (void*)&PNStop);
+	mono_dl_register_symbol("PNSetLogLevel", (void*)&PNSetLogLevel);
 	mono_dl_register_symbol("UnityNSObject_RetainObject", (void*)&UnityNSObject_RetainObject);
 	mono_dl_register_symbol("UnityNSObject_ReleaseObject", (void*)&UnityNSObject_ReleaseObject);
 	mono_dl_register_symbol("UnityNSError_Code", (void*)&UnityNSError_Code);
