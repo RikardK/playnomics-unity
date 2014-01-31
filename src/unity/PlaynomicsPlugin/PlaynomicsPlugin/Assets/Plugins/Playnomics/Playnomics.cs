@@ -12,6 +12,15 @@ public class Playnomics : MonoBehaviour
 
 	public static IPlaynomicsPlacementDelegate PlacementDelegate { get; set; }
 
+	public enum LogLevel : int
+	{
+		VERBOSE 	= 0,
+		DEBUG 		= 1,
+		WARNING 	= 2,
+		ERROR 		= 3,
+		NONE 		= 4
+	}
+
 	#region iOS Marshal Functions
 	[DllImport ("__Internal")]
 	private static extern void PNStart(long application);
@@ -33,6 +42,10 @@ public class Playnomics : MonoBehaviour
 	private static extern void PNAttributeInstallWithCampaign(string source, string campaign);
 	[DllImport ("__Internal")]
 	private static extern void PNAttributeInstallWithCampaignTime(string source, string campaign, long installTimeMilliseconds);
+	[DllImport ("__Internal")]
+	private static extern void PNStop();
+	[DllImport ("__Internal")]
+	private static extern void PNSetLogLevel(int logLevel);
 	#endregion
 
 	public static void StartSDK(long applicationId)
@@ -65,6 +78,20 @@ public class Playnomics : MonoBehaviour
 #elif UNITY_IPHONE
 		PNStartWithUserId(applicationId, userId);
 		InitializeGameObjects();
+#endif
+	}
+
+	public static void SetLogLevel(LogLevel level)
+	{
+#if UNITY_EDITOR
+		Debug.Log("Called SetLogLevel. This method is only available when you build your game for Android or iOS.");
+#elif UNITY_ANDROID
+		using(var shimClass = new AndroidJavaClass(androidShimClassName))
+		{
+			shimClass.CallStatic("setLogLevel", new object[1] { (int)level });
+		}
+#elif UNITY_IPHONE
+		PNSetLogLevel((int)level);
 #endif
 	}
 
@@ -199,6 +226,15 @@ public class Playnomics : MonoBehaviour
 		}
 #elif UNITY_IPHONE
 		PNAttributeInstallWithCampaignTime(source, campaign, installTimeMilliseconds);
+#endif
+	}
+
+	public void OnApplicationQuit()
+	{
+#if UNITY_EDITOR
+		Debug.Log("Application is shutting down.");
+#elif UNITY_IPHONE
+		PNStop();
 #endif
 	}
 

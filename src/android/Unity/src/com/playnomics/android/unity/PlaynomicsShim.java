@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
 import com.playnomics.android.sdk.Playnomics;
+import com.playnomics.android.util.Logger.LogLevel;
 
 /*
  * PlaynomicsShim is responsible for coordinating calls from the Unity SDK layer to the Android SDK
@@ -79,6 +80,20 @@ public class PlaynomicsShim {
 					toast.show();
 				}
 			});
+		}
+	}
+
+	public static void setLogLevel(int level){
+		if(level == LogLevel.VERBOSE.level()){
+			Playnomics.setLogLevel(LogLevel.VERBOSE);
+		} else if(level == LogLevel.DEBUG.level()){
+			Playnomics.setLogLevel(LogLevel.DEBUG);
+		} else if(level == LogLevel.WARNING.level()){
+			Playnomics.setLogLevel(LogLevel.WARNING);
+		} else if(level == LogLevel.ERROR.level()){
+			Playnomics.setLogLevel(LogLevel.ERROR);
+		} else if(level == LogLevel.NONE.level()){
+			Playnomics.setLogLevel(LogLevel.NONE);
 		}
 	}
 }

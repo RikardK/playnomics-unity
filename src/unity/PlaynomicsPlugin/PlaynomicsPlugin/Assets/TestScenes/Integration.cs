@@ -13,6 +13,8 @@ public class Integration : MonoBehaviour {
 		//iOS ID
 		const long appId = 930459816589800702L;
 #endif
+		//default level is ERROR
+		Playnomics.SetLogLevel(Playnomics.LogLevel.VERBOSE);
 		Playnomics.StartSDK(appId);
 		Playnomics.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
 		Playnomics.PlacementDelegate = new PlacementDelegate();

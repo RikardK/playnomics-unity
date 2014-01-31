@@ -91,6 +91,11 @@ void PNAttributeInstallWithCampaignTime(const char* source, const char* campaign
     [nsInstallDate autorelease];
 }
 
+void PNSetLogLevel(int level)
+{
+    [Playnomics setLoggingLevel:level];
+}
+
 void PNStop()
 {
     [delegate autorelease];
