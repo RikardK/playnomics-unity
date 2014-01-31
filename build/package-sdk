@@ -17,6 +17,8 @@ function color_log(){
 
 FULLSCRIPT=$(which $0)
 BINPATH=`dirname ${FULLSCRIPT}`
+
+README_FILE=${BINPATH}/../README.md
 SRC_PATH=${BINPATH}/../src
 
 UNITY_PLUGIN_PATH=$SRC_PATH/unity/PlaynomicsPlugin/PlaynomicsPlugin/Assets/Plugins
@@ -32,6 +34,10 @@ mkdir ${TARGET_PATH}
 color_log "Copy plugin files for packaging"
 
 cp -r ${UNITY_PLUGIN_PATH} ${TARGET_PATH}/Plugins
+
+color_log "Copy README instructions"
+
+cp ${README_FILE} $TARGET_PATH/README.md
 
 color_log "Removing the meta files"
 
