@@ -24,7 +24,7 @@
            android:value="@integer/google_play_services_version" />
         <!-- activities -->
         <activity
-            android:name=".MainActivity"
+            android:name="com.playnomics.android.unity.MainActivity"
             android:label="Playnomics Unity" 			  
             android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
   			<meta-data android:name="android.app.lib_name" android:value="unity" />
