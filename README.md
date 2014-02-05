@@ -329,15 +329,18 @@ If you have any questions or issues, please contact <a href="mailto:support@play
 
 Change Log
 ==========
+#### Version 1.0.2
+* Updated iOS layer to Version 1.5.1
+
+#### Version 1.0.1
+* Minor bug fix - make sure to deallocate the PNDelegate object on application shutdown
+* Allow the developer to specify the log level at Unity layer
+
 #### Version 1.0.0
 * Supports Unity games built for Android and iOS
     * Based on the iOS SDK Version 1.5.0 - compatible for iOS 5 and above
     * Based on the Android SDK Version 1.2.1 -  compatible with Gingerbread 2.3.3 (API v 10) and above
 * Includes support for 3rd Party Ads, Fullscreen Internal Messages, and Segmented Push Notifications
 * Supports testing and validation through test devices (IDFA for iOS and Android ID for Android)
-
-#### Version 1.0.1
-* Minor bug fix - make sure to deallocate the PNDelegate object on application shutdown
-* Allow the developer to specify the log level at Unity layer
 
 View version tags <a href="https://github.com/playnomics/playnomics-unity/tags">here</a>
