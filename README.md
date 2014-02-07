@@ -329,6 +329,9 @@ If you have any questions or issues, please contact <a href="mailto:support@play
 
 Change Log
 ==========
+#### Version 1.0.3
+* Updated iOS layer to Version 1.5.2
+
 #### Version 1.0.2
 * Updated iOS layer to Version 1.5.1
 
