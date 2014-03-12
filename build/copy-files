@@ -26,7 +26,7 @@ color_log "Copy External Android JAR Dependencies"
 
 cp $ANDROID_PATH/libs/android-support-v4.jar $UNITY_PLUGIN_PATH/Android/
 cp $ANDROID_PATH/libs/google-play-services.jar $UNITY_PLUGIN_PATH/Android/
-cp $ANDROID_PATH/libs/playnomics-android-sdk-1.2.1.jar $UNITY_PLUGIN_PATH/Android/
+cp $ANDROID_PATH/libs/playnomics-android-sdk-*.jar $UNITY_PLUGIN_PATH/Android/
 
 #resources
 cp -fr $ANDROID_PATH/res $UNITY_PLUGIN_PATH/Android/
