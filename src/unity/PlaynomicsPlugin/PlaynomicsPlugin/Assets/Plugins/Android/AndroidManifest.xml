@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="YOUR_PACKAGE"
+    package="YOUR.PACKAGE"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -26,7 +26,7 @@
         <activity
             android:name="com.playnomics.android.unity.MainActivity"
             android:label="Playnomics Unity" 			  
-            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen">
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|uiMode|touchscreen">
   			<meta-data android:name="android.app.lib_name" android:value="unity" />
   			<meta-data android:name="unityplayer.ForwardNativeEventsToDalvik" android:value="true" />
             <intent-filter>

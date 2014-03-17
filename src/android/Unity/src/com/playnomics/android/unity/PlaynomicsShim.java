@@ -7,6 +7,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.playnomics.android.sdk.IPlaynomicsPlacementRawDelegate;
+import com.playnomics.android.sdk.IPlaynomicsSegmentationDelegate;
 import com.playnomics.android.sdk.Playnomics;
 import com.playnomics.android.util.Logger.LogLevel;
 
@@ -16,6 +17,7 @@ import com.playnomics.android.util.Logger.LogLevel;
  */
 public class PlaynomicsShim {	
 	private static IPlaynomicsPlacementRawDelegate delegate = new PlacementDelegate();
+	private static IPlaynomicsSegmentationDelegate segmentationDelegate = new SegmentationDelegate();
 	private static final String TAG = Playnomics.class.getSimpleName();
 	public static void start(long applicationId, String userId){
 		Playnomics.start(com.unity3d.player.UnityPlayer.currentActivity, applicationId, userId);
@@ -24,7 +26,7 @@ public class PlaynomicsShim {
 	public static void start(long applicationId){
 		Playnomics.start(com.unity3d.player.UnityPlayer.currentActivity, applicationId);
 	}
-	
+
 	public static void customEvent(String customEventName){
 		Log.d(TAG, String.format("customEvent { customEventName : %s }", customEventName));
 		Playnomics.customEvent(customEventName);
@@ -67,9 +69,15 @@ public class PlaynomicsShim {
 		Log.d(TAG, String.format("hidePlacement { placementName : %s }", placementName));
 		Playnomics.hidePlacement(placementName);
 	}
-	
+
+	public static void fetchUserSegmentIds(){
+		Log.d(TAG, "fetchUserSegmentIds");	
+		Playnomics.fetchUserSegmentIds(segmentationDelegate);
+	}
+
 	//NOTE: this method is strictly for debugging
 	public static void toastMessage(final String message){
+		Log.d(TAG, "toastMessage " + message);
 		if(com.unity3d.player.UnityPlayer.currentActivity != null){
 			com.unity3d.player.UnityPlayer.currentActivity.runOnUiThread(new Runnable(){
 				public void run() {

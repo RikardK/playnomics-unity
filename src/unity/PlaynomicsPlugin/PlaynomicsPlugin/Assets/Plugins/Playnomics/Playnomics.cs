@@ -1,7 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Collections.Generic;
 using UnityEngine;
 using Play.LitJson;
+
 
 public class Playnomics : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class Playnomics : MonoBehaviour
 	private static readonly string androidShimClassName = "com.playnomics.android.unity.PlaynomicsShim";
 
 	public static IPlaynomicsPlacementDelegate PlacementDelegate { get; set; }
+
+	public static IPlaynomicsSegmentationDelegate SegmentationDelegate { get; set; }
 
 	public enum LogLevel : int
 	{
@@ -46,6 +50,8 @@ public class Playnomics : MonoBehaviour
 	private static extern void PNStop();
 	[DllImport ("__Internal")]
 	private static extern void PNSetLogLevel(int logLevel);
+	[DllImport ("__Internal")]
+	private static extern void PNFetchUserSegmentIds();
 	#endregion
 
 	public static void StartSDK(long applicationId)
@@ -229,6 +235,20 @@ public class Playnomics : MonoBehaviour
 #endif
 	}
 
+	public static void FetchUserSegmentIds()
+	{
+		#if UNITY_EDITOR
+		Debug.Log("Called FetchUserSegmentIds. This method is only available when you build your game for Android or iOS.");
+		#elif UNITY_ANDROID
+		using(var sdkClass = new AndroidJavaClass(androidShimClassName))
+		{
+			sdkClass.CallStatic("fetchUserSegmentIds");
+		}
+		#elif UNITY_IPHONE
+		PNFetchUserSegmentIds();
+		#endif
+	}
+
 	public void OnApplicationQuit()
 	{
 #if UNITY_EDITOR
@@ -237,6 +257,49 @@ public class Playnomics : MonoBehaviour
 		PNStop();
 #endif
 	}
+
+	#region Segmentation
+	public void OnFetchedUserSegmentIds(string rawJsonData)
+	{
+		JsonData jsonData = GetJsonData(rawJsonData);
+		if(SegmentationDelegate != null)
+		{
+			List<long> userSegmentsIds = null;
+			if (jsonData != null)
+			{
+				JsonData segments = jsonData["segments"];
+				if (segments!=null && segments.Count>0)
+				{
+					userSegmentsIds = new List<long>();
+					for (int i=0; i<segments.Count; i++)
+					{
+						string svalue = (string)segments[i].ToString();
+						long lvalue = 0;
+						bool isConverted = long.TryParse(svalue, out lvalue);
+						userSegmentsIds.Add(lvalue);
+					}
+				}
+			}
+			SegmentationDelegate.OnFetchedUserSegmentIds(userSegmentsIds);
+		}
+	}
+
+	public void OnFetchedUserSegmentIdsError(string rawJsonData)
+	{
+		JsonData jsonData = GetJsonData(rawJsonData);
+		if(SegmentationDelegate != null)
+		{
+			string errorString = null;
+			string description = null;
+			if (jsonData != null)
+			{
+				errorString = jsonData["error"].ToString();
+				description = jsonData["description"].ToString();
+			}
+			SegmentationDelegate.OnFetchedUserSegmentIdsError(errorString, description);
+		}
+	}
+	#endregion
 
 	#region Placements
 	public void OnShow(string rawJsonData)

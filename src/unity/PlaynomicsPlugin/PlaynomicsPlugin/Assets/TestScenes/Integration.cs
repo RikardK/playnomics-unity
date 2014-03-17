@@ -18,6 +18,7 @@ public class Integration : MonoBehaviour {
 		Playnomics.StartSDK(appId);
 		Playnomics.PreloadPlacements("http", "ad", "noShow", "json", "nullTarget");
 		Playnomics.PlacementDelegate = new PlacementDelegate();
+		Playnomics.SegmentationDelegate = new SegmentationDelegate();
 	}
 
 	// Update is called once per frame
@@ -31,7 +32,7 @@ public class Integration : MonoBehaviour {
 
 		int numberButtons = 8;
 
-		float height = Screen.height/10;
+		float height = Screen.height/11;
 		float width = Screen.width * 0.50f;
 		
 		float verticalPadding = 10;
@@ -83,5 +84,11 @@ public class Integration : MonoBehaviour {
 		{
 			Playnomics.ShowPlacement("noShow");
 		}
+
+		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Fetch User Segment Ids"))
+		{
+			Playnomics.FetchUserSegmentIds();
+		}
+
 	}
 }

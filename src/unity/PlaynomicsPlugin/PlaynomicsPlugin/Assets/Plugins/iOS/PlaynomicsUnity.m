@@ -91,6 +91,14 @@ void PNAttributeInstallWithCampaignTime(const char* source, const char* campaign
     [nsInstallDate autorelease];
 }
 
+void PNFetchUserSegmentIds()
+{
+    if(!delegate){
+        delegate = [[PNDelegate alloc] init];
+    }
+    [Playnomics fetchUserSegmentIds:delegate];
+}
+
 void PNSetLogLevel(int level)
 {
     [Playnomics setLoggingLevel:level];

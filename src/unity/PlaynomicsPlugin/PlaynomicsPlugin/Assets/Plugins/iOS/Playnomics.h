@@ -42,6 +42,13 @@ typedef NS_ENUM(int, PNMilestoneType){
     PNMilestoneCustom25 = 25
 };
 
+@protocol PlaynomicsSegmentationDelegate <NSObject>
+@optional
+-(void) onFetchedUserSegmentIds:(NSArray*) segmentationIds;
+-(void) onFetchedUserSegmentIdsError:(NSString*)error description:(NSString*)description;
+@end
+
+
 @protocol PlaynomicsBasePlacementDelegate <NSObject>
 @optional
 -(void) onDidFailToRender;
@@ -94,6 +101,8 @@ typedef NS_ENUM(int, PNMilestoneType){
                      withCampaign:(NSString *) campaign
                     onInstallDate:(NSDate *) installDate;
 
+
++ (void)fetchUserSegmentIds:(id<PlaynomicsSegmentationDelegate>)delegate;
 
 //Push Notifications
 + (void) enablePushNotificationsWithToken:(NSData *)deviceToken;
