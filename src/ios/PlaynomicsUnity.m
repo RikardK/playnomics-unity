@@ -99,6 +99,17 @@ void PNFetchUserSegmentIds()
     [Playnomics fetchUserSegmentIds:delegate];
 }
 
+void PNSetUserGender(const char* gender)
+{
+    NSString *nsGender = PNCreateNSString(gender);
+    [Playnomics setUserGender:nsGender];
+}
+
+void PNSetUserBirthYear(int year)
+{
+    [Playnomics setUserBirthYear:year];
+}
+
 void PNSetLogLevel(int level)
 {
     [Playnomics setLoggingLevel:level];

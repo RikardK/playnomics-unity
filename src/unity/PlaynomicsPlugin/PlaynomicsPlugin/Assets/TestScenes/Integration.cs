@@ -30,9 +30,9 @@ public class Integration : MonoBehaviour {
 	{
 		GUI.depth = 2;
 
-		int numberButtons = 8;
+		int numberButtons = 10;
 
-		float height = Screen.height/11;
+		float height = Screen.height/12;
 		float width = Screen.width * 0.50f;
 		
 		float verticalPadding = 10;
@@ -88,6 +88,12 @@ public class Integration : MonoBehaviour {
 		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Fetch User Segment Ids"))
 		{
 			Playnomics.FetchUserSegmentIds();
+		}
+
+		if(GUI.Button(new Rect(x, y += (verticalPadding + height), width, height), "Send Gender And Year"))
+		{
+			Playnomics.SetUserGender("M");
+			Playnomics.SetUserBirthYear(2014);
 		}
 
 	}

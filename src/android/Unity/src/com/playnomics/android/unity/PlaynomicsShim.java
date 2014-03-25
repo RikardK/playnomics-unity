@@ -75,6 +75,16 @@ public class PlaynomicsShim {
 		Playnomics.fetchUserSegmentIds(segmentationDelegate);
 	}
 
+	public static void setUserGender(String gender){
+		Log.d(TAG, "setUserGender");	
+		Playnomics.setUserGender(gender);
+	}
+
+	public static void setUserBirthYear(int year){
+		Log.d(TAG, "setUserBirthYear");	
+		Playnomics.setUserBirthYear(year);
+	}
+
 	//NOTE: this method is strictly for debugging
 	public static void toastMessage(final String message){
 		Log.d(TAG, "toastMessage " + message);

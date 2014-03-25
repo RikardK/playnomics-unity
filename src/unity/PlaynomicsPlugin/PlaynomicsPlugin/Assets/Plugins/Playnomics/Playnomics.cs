@@ -52,6 +52,10 @@ public class Playnomics : MonoBehaviour
 	private static extern void PNSetLogLevel(int logLevel);
 	[DllImport ("__Internal")]
 	private static extern void PNFetchUserSegmentIds();
+	[DllImport ("__Internal")]
+	private static extern void PNSetUserGender(string gender);
+	[DllImport ("__Internal")]
+	private static extern void PNSetUserBirthYear(int year);
 	#endregion
 
 	public static void StartSDK(long applicationId)
@@ -246,6 +250,34 @@ public class Playnomics : MonoBehaviour
 		}
 		#elif UNITY_IPHONE
 		PNFetchUserSegmentIds();
+		#endif
+	}
+
+	public static void SetUserGender(string gender)
+	{
+		#if UNITY_EDITOR
+		Debug.Log("Called SetUserGender. This method is only available when you build your game for Android or iOS.");
+		#elif UNITY_ANDROID
+		using(var sdkClass = new AndroidJavaClass(androidShimClassName))
+		{
+			sdkClass.CallStatic("setUserGender", new object[1] { gender });
+		}
+		#elif UNITY_IPHONE
+		PNSetUserGender(gender);
+		#endif
+	}
+
+	public static void SetUserBirthYear(int year)
+	{
+		#if UNITY_EDITOR
+		Debug.Log("Called SetUserBirthYear. This method is only available when you build your game for Android or iOS.");
+		#elif UNITY_ANDROID
+		using(var sdkClass = new AndroidJavaClass(androidShimClassName))
+		{
+			sdkClass.CallStatic("setUserBirthYear", new object[1] { year });
+		}
+		#elif UNITY_IPHONE
+		PNSetUserBirthYear(year);
 		#endif
 	}
 

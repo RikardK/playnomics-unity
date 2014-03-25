@@ -1,13 +1,14 @@
 //
 //  Playnomics.h
 //
-//  Created by Jared Jenkins on 8/23/13.
 //
 //
 
 #import <Foundation/Foundation.h>
 #import "PNLogger.h"
 #include <AvailabilityMacros.h>
+
+#define PN_SDK_Version @"1.6.0"
 
 //this is available in iOS 6 and above, add this in for iOS 5 and below
 #ifndef NS_ENUM
@@ -103,6 +104,11 @@ typedef NS_ENUM(int, PNMilestoneType){
 
 
 + (void)fetchUserSegmentIds:(id<PlaynomicsSegmentationDelegate>)delegate;
+
++ (void)setUserGender:(NSString*)gender;
+
++ (void)setUserBirthYear:(int)year;
+
 
 //Push Notifications
 + (void) enablePushNotificationsWithToken:(NSData *)deviceToken;
