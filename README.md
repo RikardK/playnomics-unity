@@ -176,6 +176,12 @@ Full Integration
             <a href="#custom-event-tracking">Custom Event Tracking</a>
         </li>
         <li>
+            <a href="#user-information">User Information</a>
+        </li>
+        <li>
+            <a href="#user-segmentation">User Segmentation</a>
+        </li>
+        <li>
             <a href="#push-notifications">Push Notifications</a>
         </li>
         <li>
@@ -314,6 +320,92 @@ Example client-side calls for a user reaching a event, with generated IDs:
 ```csharp
 string eventName = "level 1 complete";
 Playnomics.CustomEvent(eventName);
+```
+## User Information
+
+Specify user information like gender and birth year.
+
+####User Gender:
+
+```csharp
+public static void SetUserGender(string gender);
+```
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>gender</code></td>
+            <td>String</td>
+            <td>
+                Specify user gender Female/Male.
+                <br>Must be exactly “F”, “M”, or “U” (lowercase accepted)
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Example client-side calls for setting user gender:
+
+```csharp
+String gender = "F";
+Playnomics.SetUserGender(gender);
+```
+
+
+####User Birth Year:
+
+```csharp
+public static void SetUserBirthYear(int year);
+```
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>birthYear</code></td>
+            <td>int</td>
+            <td>
+                Specify user birth year.
+                <br>Must be year in 4 digit format.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+Example client-side calls for setting user birth year:
+
+```csharp
+int birthYear = 2014;
+Playnomics.SetUserBirthYear(birthYear);
+```
+
+## User Segmentation
+
+Each user is placed in zero or more segments. To retrieve the segmentation Ids for a user call the method below.
+
+```csharp
+public static void FetchUserSegmentIds();
+```
+
+Using an implementation of `IPlaynomicsSegmentationDelegate` your application can receive notifications once the segmentation Ids are fetched.
+
+```csharp
+public interface IPlaynomicsSegmentationDelegate
+{
+	void OnFetchedUserSegmentIds(List<long> userSegmentsIds);
+	void OnFetchedUserSegmentIdsError(string error, string description);
+}
 ```
 
 Push Notifications
