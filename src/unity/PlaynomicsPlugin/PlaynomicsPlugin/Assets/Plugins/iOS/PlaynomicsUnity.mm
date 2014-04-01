@@ -2,6 +2,10 @@
 #import "Playnomics.h"
 #import "PNDelegate.h"
 
+extern UIView* UnityGetGLView();
+
+extern "C" {
+
 static PNDelegate* delegate = nil;
 
 // Converts C style string to NSString
@@ -24,12 +28,14 @@ const char* PNMakeStringCopy(NSString *nsString)
 void PNStart(long long applicationId)
 {
     [Playnomics startWithApplicationId:applicationId];
+    [Playnomics setPlacementParentView: UnityGetGLView()];
 }
 
 void PNStartWithUserId(long long applicationId, const char* userId)
 {
     NSString *nsUserId = PNCreateNSString(userId);
     [Playnomics startWithApplicationId:applicationId andUserId: nsUserId];
+    [Playnomics setPlacementParentView: UnityGetGLView()];
 }
 
 void PNCustomEvent(const char* customEventName)
@@ -118,4 +124,6 @@ void PNSetLogLevel(int level)
 void PNStop()
 {
     [delegate autorelease];
+}
+
 }
