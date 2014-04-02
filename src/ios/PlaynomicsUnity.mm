@@ -118,7 +118,7 @@ void PNSetUserBirthYear(int year)
 
 void PNSetLogLevel(int level)
 {
-    [Playnomics setLoggingLevel:level];
+    [Playnomics setLoggingLevel:(PNLoggingLevel)level];
 }
 
 void PNStop()
