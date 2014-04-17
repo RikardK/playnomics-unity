@@ -1,9 +1,6 @@
 Playnomics Unity SDK
 =============================================
-
-## Considerations for Cross-Platform Applications
-
-If you want to deploy your application to multiple platforms (eg: iOS and Android), you'll need to create a separate Playnomics Applications in the control panel. Each application build will use a separate `<APPID>`.
+<img src="http://integration.playnomics.com/img/unity/unity-3d-logo.png">
 
 Getting Started
 ===============
@@ -17,6 +14,10 @@ The tar file contains a set files for using the PlayRM SDK with Android and iOS.
 If you don't already have files in the Android and iOS folders, feel free to copy the folders as is into your project.
 
 If you already have existing plugins, we encourage you to look through the files to make ensure that aren't any conflicts.
+
+## Considerations for Cross-Platform Applications
+
+If you want to deploy your application to multiple platforms (eg: iOS and Android), you'll need to create a separate Playnomics Applications in the control panel. Each application build will use a separate `<APPID>`.
 
 ## Preparing for Deployment
 
