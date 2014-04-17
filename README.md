@@ -182,9 +182,6 @@ Full Integration
             <a href="#user-segmentation">User Segmentation</a>
         </li>
         <li>
-            <a href="#push-notifications">Push Notifications</a>
-        </li>
-        <li>
            <a href="https://github.com/playnomics/playnomics-android/wiki/Rich-Data-Callbacks">
                Rich Data Callbacks
            </a>
@@ -407,13 +404,6 @@ public interface IPlaynomicsSegmentationDelegate
 	void OnFetchedUserSegmentIdsError(string error, string description);
 }
 ```
-
-Push Notifications
-==================
-
-We currently support push notifications for iOS and Android via Google Cloud Messaging.
-
-Please review the respective wiki pages for [Android](https://github.com/playnomics/playnomics-unity/wiki/Android-Manifest-Setup) and [iOS](https://github.com/playnomics/playnomics-unity/wiki/iOS-Setup) to setup your application for push notifications.
 
 Support Issues
 ==============
