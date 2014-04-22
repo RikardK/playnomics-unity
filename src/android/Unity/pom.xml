@@ -37,9 +37,9 @@
 		<dependency>
 		    <groupId>playnomics-android-sdk</groupId>
 		    <artifactId>com.playnomics.android</artifactId>
-		    <version>1.3.1</version>
+		    <version>1.3.3</version>
 		    <scope>system</scope>
-		    <systemPath>${project.basedir}/libs/playnomics-android-sdk-1.3.1.jar</systemPath>
+		    <systemPath>${project.basedir}/libs/playnomics-android-sdk-1.3.3.jar</systemPath>
 		</dependency>
 	</dependencies>
 </project>

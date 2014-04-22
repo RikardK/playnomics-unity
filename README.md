@@ -412,6 +412,9 @@ If you have any questions or issues, please contact <a href="mailto:support@play
 
 Change Log
 ==========
+#### Version 1.1.1
+* Updated iOS layer to Version 1.6.1 and Android to Version 1.3.3
+
 #### Version 1.1.0
 * Updated iOS layer to Version 1.6.0 and Android to Version 1.3.1
 

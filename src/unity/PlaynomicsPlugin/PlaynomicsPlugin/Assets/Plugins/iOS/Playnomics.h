@@ -8,7 +8,7 @@
 #import "PNLogger.h"
 #include <AvailabilityMacros.h>
 
-#define PN_SDK_Version @"1.6.0"
+#define PN_SDK_Version @"1.6.1"
 
 //this is available in iOS 6 and above, add this in for iOS 5 and below
 #ifndef NS_ENUM
@@ -84,8 +84,8 @@ typedef NS_ENUM(int, PNMilestoneType){
 
 + (BOOL) startWithApplicationId:(unsigned long long) applicationId
                       andUserId:(NSString*) userId;
-
-+ (void) onUIEventReceived: (UIEvent *) event;
+;
++ (void) onUIEventReceived: (UIEvent *) event DEPRECATED_ATTRIBUTE;
 //Explicit Events
 + (void) milestone:(PNMilestoneType) milestoneType DEPRECATED_ATTRIBUTE;
 + (void) customEventWithName:(NSString *) customEventName;
@@ -139,5 +139,5 @@ typedef NS_ENUM(int, PNMilestoneType){
 @end
 
 @interface PNApplication : UIApplication<UIApplicationDelegate>
-- (void) sendEvent:(UIEvent *)event;
+- (void) sendEvent:(UIEvent *)event DEPRECATED_ATTRIBUTE;
 @end

@@ -293,43 +293,49 @@ public class Playnomics : MonoBehaviour
 	#region Segmentation
 	public void OnFetchedUserSegmentIds(string rawJsonData)
 	{
-		JsonData jsonData = GetJsonData(rawJsonData);
-		if(SegmentationDelegate != null)
+		if (SegmentationDelegate == null)
+			return;
+
+		JsonData jsonData = null;
+		if (rawJsonData!=null && rawJsonData.Length>0)
+			jsonData = GetJsonData(rawJsonData);
+
+		List<long> userSegmentsIds = null;
+		if (jsonData != null)
 		{
-			List<long> userSegmentsIds = null;
-			if (jsonData != null)
+			JsonData segments = jsonData["segments"];
+			if (segments!=null && segments.Count>0)
 			{
-				JsonData segments = jsonData["segments"];
-				if (segments!=null && segments.Count>0)
+				userSegmentsIds = new List<long>();
+				for (int i=0; i<segments.Count; i++)
 				{
-					userSegmentsIds = new List<long>();
-					for (int i=0; i<segments.Count; i++)
-					{
-						string svalue = (string)segments[i].ToString();
-						long lvalue = 0;
-						bool isConverted = long.TryParse(svalue, out lvalue);
-						userSegmentsIds.Add(lvalue);
-					}
+					string svalue = (string)segments[i].ToString();
+					long lvalue = 0;
+					bool isConverted = long.TryParse(svalue, out lvalue);
+					userSegmentsIds.Add(lvalue);
 				}
 			}
-			SegmentationDelegate.OnFetchedUserSegmentIds(userSegmentsIds);
 		}
+		SegmentationDelegate.OnFetchedUserSegmentIds(userSegmentsIds);
 	}
 
 	public void OnFetchedUserSegmentIdsError(string rawJsonData)
 	{
-		JsonData jsonData = GetJsonData(rawJsonData);
-		if(SegmentationDelegate != null)
+		if (SegmentationDelegate == null)
+			return;
+
+		JsonData jsonData = null;
+		if (rawJsonData!=null && rawJsonData.Length>0)
+			jsonData = GetJsonData(rawJsonData);
+
+		string errorString = null;
+		string description = null;
+		if (jsonData != null)
 		{
-			string errorString = null;
-			string description = null;
-			if (jsonData != null)
-			{
-				errorString = jsonData["error"].ToString();
-				description = jsonData["description"].ToString();
-			}
-			SegmentationDelegate.OnFetchedUserSegmentIdsError(errorString, description);
+			errorString = jsonData["error"].ToString();
+			description = jsonData["description"].ToString();
 		}
+		SegmentationDelegate.OnFetchedUserSegmentIdsError(errorString, description);
 	}
 	#endregion
 
