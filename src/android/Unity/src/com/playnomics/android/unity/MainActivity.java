@@ -66,7 +66,7 @@ public class MainActivity
 		try {
 			ApplicationInfo appInfo = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
 			Bundle bundle = appInfo.metaData;
-		    if(bundle.containsKey(GCM_SENDER_ID_KEY)){
+		    if(bundle!=null && bundle.containsKey(GCM_SENDER_ID_KEY)){
 		    	String senderId = bundle.getString(GCM_SENDER_ID_KEY);
 			    if(senderId == null || senderId.equals(DEFAULT_GCM_SENDER_ID)){
 			    	return null;
