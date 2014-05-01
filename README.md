@@ -412,6 +412,9 @@ If you have any questions or issues, please contact <a href="mailto:support@play
 
 Change Log
 ==========
+#### Version 1.1.3
+* Updated Android layer to Version 1.3.5 Fixed calling of Playnomics SDK on non-UI threads
+
 #### Version 1.1.2
 * Updated Android layer to Version 1.3.4
 * Fixed NullPointerException in Android binding layer.
