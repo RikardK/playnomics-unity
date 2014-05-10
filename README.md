@@ -67,89 +67,6 @@ If you do choose to provide a `<USER-ID>`, this value should be persistent, anon
 
 **You cannot use the user's Facebook ID or any personally identifiable information (plain-text email, name, etc) for the `<USER-ID>`.**
 
-Messaging Integration
-=====================
-This guide assumes you're already familiar with the concept of placements and messaging, and that you have all of the relevant `placements` setup for your application.
-
-Once you have all of your placements created with their associated `<PLACEMENT-ID>`s, you can start the integration process.
-
-## SDK Integration
-
-We recommend that you preload all of your placements when your application loads, so that you can quickly show a placement when necessary:
-
-```csharp
-public static void PreloadPlacements(params string[] placementNames);
-```
-
-```csharp
-public class Integration : MonoBehaviour {
-    void Start () {
-#if UNITY_ANDROID
-        const long appId = <ANDROID-APPID>L;
-#else
-        const long appId = <IPHONE-APPID>L;
-#endif
-        Playnomics.StartSDK(appId);
-        Playnomics.PreloadPlacements("appStart", "levelComplete");
-    }
-}
-```
-
-Then when you're ready, you can show the placement:
-
-```csharp
-public static void ShowPlacement(string placementName);
-```
-
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><code>placementName</code></td>
-            <td>string</td>
-            <td>Unique identifier for the placement</td>
-        </tr>
-    </tbody>
-</table>
-
-Optionally, associate an implementation of the `IPlaynomicsPlacementDelegate` interface, to process rich data callbacks. See [Using Rich Data Callbacks](#using-rich-data-callbacks) for more information.
-
-```csharp
-public static IPlaynomicsPlacementDelegate PlacementDelegate { get; set; }
-```
-
-## Using Rich Data Callbacks
-
-Using an implementation of `IPlacementDelegate` your application can receive notifications when a placement:
-
-* Is shown in the screen.
-* Receives a touch event on the creative.
-* Is dismissed by the user, when they press the close button.
-* Can't be rendered in the view because of connectivity or other issues.
-
-```csharp
-using Play.LitJson;
-public interface IPlaynomicsPlacementDelegate
-{
-    void onShow(JsonData jsonData);
-
-    void onTouch(JsonData jsonData);
-
-    void onClose(JsonData jsonData);
-
-    void onRenderFailed();
-}
-```
-
-For each of these events, your delegate may also receive Rich Data that has been tied with this creative. Rich Data is a JSON message that you can associate with your message creative. In all cases, the `jsonData` value can be `null`.
-
-The actual contents of your JSON message can be delayed until the time of the messaging campaign configuration. However, the structure of your message needs to be decided before you can process it in your application. See [example use-cases for rich data](https://github.com/playnomics/playnomics-unity/wiki/Rich-Data-Callbacks) for more information.
 
 ## Validate Integration
 After you've finished the installation, you should verify that your application is correctly integrated by checkout the integration verification section of your application page.
@@ -181,11 +98,6 @@ Full Integration
         </li>
         <li>
             <a href="#user-segmentation">User Segmentation</a>
-        </li>
-        <li>
-           <a href="https://github.com/playnomics/playnomics-android/wiki/Rich-Data-Callbacks">
-               Rich Data Callbacks
-           </a>
         </li>
         <li>
             <a href="#support-issues">Support Issues</a>
